@@ -226,7 +226,6 @@ for (j = 0; j < repetition.length; j++) {
 //Functions
 // replace b with g and create the corresponding at_fix stimuli
   function rep(str) {
-      //stimuli.at_stimulus;
       str = setCharAt(str,20,'g');
       return str
   }
@@ -247,7 +246,6 @@ var attention = {
   choices: ['g'],
   data: jsPsych.timelineVariable('data'),
   trial_duration: 800,
-  //response_ends_trial: false,
   on_finish: function(data){
     fix_duration = 800 - (jsPsych.data.get().filter({TaskType: 'at'}).last(1).select('rt').values);
     //console.log(fix_duration)

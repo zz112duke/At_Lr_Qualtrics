@@ -53,11 +53,11 @@
             on_finish: function (data) {
 
                 // save to qualtrics embedded data
-                Qualtrics.SurveyEngine.setEmbeddedData("correct", correct);
-                Qualtrics.SurveyEngine.setEmbeddedData("rt", rt);
-                Qualtrics.SurveyEngine.setEmbeddedData("sd", sd);
-                Qualtrics.SurveyEngine.setEmbeddedData("at_TraillingMean", at_TraillingMean);
-                Qualtrics.SurveyEngine.setEmbeddedData("at_RunningMean", at_RunningMean);
+                //Qualtrics.SurveyEngine.setEmbeddedData("correct", correct);
+                //Qualtrics.SurveyEngine.setEmbeddedData("rt", rt);
+                //Qualtrics.SurveyEngine.setEmbeddedData("sd", sd);
+                //Qualtrics.SurveyEngine.setEmbeddedData("at_TraillingMean", at_TraillingMean);
+                //Qualtrics.SurveyEngine.setEmbeddedData("at_RunningMean", at_RunningMean);
                 // clear the stage
                 jQuery('#display_stage').remove();
                 jQuery('#display_stage_background').remove();

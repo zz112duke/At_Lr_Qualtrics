@@ -208,7 +208,7 @@ for (j = 0; j < repetition.length; j++) {
   stimuli.data = new Object();
 
 
-  if (stimuli.at_stimulus.charAt(60) == 0) {
+  if (stimuli.at_stimulus.charAt(59) == 0) {
     stimuli.data.at_TrialType = 'frequent';
     stimuli.data.correct_response = 'g'
   } else {
@@ -226,7 +226,7 @@ for (j = 0; j < repetition.length; j++) {
 //Functions
 // replace b with g and create the corresponding at_fix stimuli
   function rep(str) {
-      str = setCharAt(str,64,'g');
+      str = setCharAt(str,63,'g');
       return str
   }
 
@@ -349,6 +349,19 @@ var at_test_procedure = {
   repetitions: 1
 }
 timeline.push(at_test_procedure);
+
+//function save_data_csv() {
+//    jQuery.ajax({
+//        type: 'post',
+//        cache: false,
+//        url: save_url,
+//        data: {
+//            data_dir: data_dir,
+//            file_name: file_name + '.csv', // the file type should be added
+//            exp_data: jsPsych.data.get().csv()
+//        }
+//    });
+//}
 
 
 //jsPsych.init({

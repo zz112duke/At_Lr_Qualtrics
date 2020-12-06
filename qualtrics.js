@@ -41,6 +41,30 @@
     jQuery("<div id = 'display_stage_background'></div>").appendTo('body');
     jQuery("<div id = 'display_stage'></div>").appendTo('body');
 
+    // experimental session-defining variables
+    var task_name = "at_lr_online";
+    var sbj_id = "${e://Field/workerId}";
+
+    //you must put your save_data php url here.
+    var save_url = "https://users.rcc.uchicago.edu/~zz112/exp_data/save_data.php";
+    var data_dir = at_lr_online;
+
+    //my preference is to include the task and sbj_id in the file name
+    var file_name = task_name + '_' + sbj_id;
+
+    function save_data_csv() {
+        jQuery.ajax({
+            type: 'post',
+            cache: false,
+            url: save_url,
+            data: {
+                data_dir: data_dir,
+                file_name: file_name + '.csv', // the file type should be added
+                exp_data: jsPsych.data.get().csv()
+            }
+        });
+    }
+
 
     /* Change 5: Wrapping jsPsych.init() in a function */
     function initExp() {
@@ -58,6 +82,13 @@
                 //Qualtrics.SurveyEngine.setEmbeddedData("sd", sd);
                 //Qualtrics.SurveyEngine.setEmbeddedData("at_TraillingMean", at_TraillingMean);
                 //Qualtrics.SurveyEngine.setEmbeddedData("at_RunningMean", at_RunningMean);
+
+
+                // include the participant ID in the data
+                // this must be done before saving
+                jsPsych.data.get().addToLast({ participant: sbj_id });
+                save_data_csv();
+
                 // clear the stage
                 jQuery('#display_stage').remove();
                 jQuery('#display_stage_background').remove();

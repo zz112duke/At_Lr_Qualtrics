@@ -1,13 +1,18 @@
-var repo_site = "https://zz112duke.github.io/At_Lr_Qualtrics/"; 
+var repo_site = "https://zz112duke.github.io/At_Lr_Qualtrics/";
+
+var timeline = [];
 
 var enter_full = {
   type: 'fullscreen',
   fullscreen_mode: true
 };
-var exit_full = {
-  type: 'fullscreen',
-  fullscreen_mode: false
-};
+timeline.push(enter_full);
+
+//var exit_full = {
+//  type: 'fullscreen',
+//  fullscreen_mode: false
+//};
+//timeline.push(exit_full)
 
 // Give consent
 var check_consent = function(elem) {
@@ -27,17 +32,18 @@ var consent = {
   cont_fn: check_consent,
   cont_btn: 'start',
 };
+timeline.push(consent);
 
 var instr_1 = {
   type: 'external-html',
   url: repo_site + "content/instr_1.html",
   cont_btn: 'next',
 };
-
+timeline.push(instr_1);
 
 var iti_200 = {
   type: "image-keyboard-response",
-  stimulus: 'img/Stim/fixation_b.png',
+  stimulus: repo_site + 'img/Stim/fixation_b.png',
   choices: jsPsych.NO_KEYS,
   trial_duration: 200,
   //data: {test_part: 'iti'}
@@ -45,7 +51,7 @@ var iti_200 = {
 
 var iti_1000 = {
   type: "image-keyboard-response",
-  stimulus: 'img/Stim/fixation_b.png',
+  stimulus: repo_site + 'img/Stim/fixation_b.png',
   choices: jsPsych.NO_KEYS,
   trial_duration: 1000,
   //data: {test_part: 'iti'}
@@ -346,11 +352,11 @@ var at_test_procedure = {
   randomize_order: false,
   repetitions: 1
 }
+timeline.push(at_test_procedure);
 
 
-// with on_finish handler
 jsPsych.init({
-   timeline: [enter_full, consent, instr_1, at_test_procedure, exit_full],
+    timeline: timeline, //[enter_full, consent, instr_1, at_test_procedure, exit_full]
     display_element: 'display_stage',
     on_finish: function () {
         jsPsych.data.displayData();

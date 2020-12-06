@@ -218,7 +218,7 @@ for (j = 0; j < repetition.length; j++) {
   stimuli.data = new Object();
 
 
-  if (stimuli.at_stimulus.charAt(59) == 0) {
+  if (stimuli.at_stimulus.charAt(60) == 0) {
     stimuli.data.at_TrialType = 'frequent';
     stimuli.data.correct_response = 'g'
   } else {
@@ -236,7 +236,7 @@ for (j = 0; j < repetition.length; j++) {
 //Functions
 // replace b with g and create the corresponding at_fix stimuli
   function rep(str) {
-      str = setCharAt(str,63,'g');
+      str = setCharAt(str,64,'g');
       return str
   }
 

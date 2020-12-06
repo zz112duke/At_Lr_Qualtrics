@@ -1,3 +1,5 @@
+var repo_site = "https://zz112duke.github.io/At_Lr_Qualtrics/"; 
+
 var enter_full = {
   type: 'fullscreen',
   fullscreen_mode: true
@@ -21,14 +23,14 @@ var check_consent = function(elem) {
 
 var consent = {
   type: 'external-html',
-  url: 'content/consent.html',
+  url: repo_site + "content/consent.html",
   cont_fn: check_consent,
   cont_btn: 'start',
 };
 
 var instr_1 = {
   type: 'external-html',
-  url: 'content/instr_1.html',
+  url: repo_site + "content/instr_1.html",
   cont_btn: 'next',
 };
 
@@ -51,40 +53,41 @@ var iti_1000 = {
 
 /* define learning trials */
 var lr_stimuli_TS1 = [ //TS1 based on frequency; high a low l
-  { lr_stimulus: "img/Stim/TS000.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'x'}},
-  { lr_stimulus: "img/Stim/TS001.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'x'}},
-  { lr_stimulus: "img/Stim/TS002.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'x'}},
-  { lr_stimulus: "img/Stim/TS003.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'x'}},
-  { lr_stimulus: "img/Stim/TS010.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'x'}},
-  { lr_stimulus: "img/Stim/TS011.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'x'}},
-  { lr_stimulus: "img/Stim/TS012.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'x'}},
-  { lr_stimulus: "img/Stim/TS013.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'x'}},
-  { lr_stimulus: "img/Stim/TS020.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'm'}},
-  { lr_stimulus: "img/Stim/TS021.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'm'}},
-  { lr_stimulus: "img/Stim/TS022.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'm'}},
-  { lr_stimulus: "img/Stim/TS023.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'm'}},
-  { lr_stimulus: "img/Stim/TS030.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'm'}},
-  { lr_stimulus: "img/Stim/TS031.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'm'}},
-  { lr_stimulus: "img/Stim/TS032.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'm'}},
-  { lr_stimulus: "img/Stim/TS033.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'm'}},
+    { lr_stimulus: repo_site + "img/Stim/TS000.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'x'}},
+    { lr_stimulus: repo_site + "img/Stim/TS001.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'x'}},
+    { lr_stimulus: repo_site + "img/Stim/TS002.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'x'}},
+    { lr_stimulus: repo_site + "img/Stim/TS003.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'x'}},
+    { lr_stimulus: repo_site + "img/Stim/TS003.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'x'}},
+    { lr_stimulus: repo_site + "img/Stim/TS010.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'x'}},
+    { lr_stimulus: repo_site + "img/Stim/TS011.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'x'}},
+    { lr_stimulus: repo_site + "img/Stim/TS012.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'x'}},
+    { lr_stimulus: repo_site + "img/Stim/TS013.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'x'}},
+    { lr_stimulus: repo_site + "img/Stim/TS020.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'm'}},
+    { lr_stimulus: repo_site + "img/Stim/TS021.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'm'}},
+    { lr_stimulus: repo_site + "img/Stim/TS022.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'm'}},
+    { lr_stimulus: repo_site + "img/Stim/TS023.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'm'}},
+    { lr_stimulus: repo_site + "img/Stim/TS030.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'm'}},
+    { lr_stimulus: repo_site + "img/Stim/TS031.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'm'}},
+    { lr_stimulus: repo_site + "img/Stim/TS032.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'm'}},
+    { lr_stimulus: repo_site + "img/Stim/TS033.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'm'}},
 ];
 var lr_stimuli_TS2 = [ //TS2 based on orientation; right a left l
-  { lr_stimulus: "img/Stim/TS100.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'x'}},
-  { lr_stimulus: "img/Stim/TS101.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'x'}},
-  { lr_stimulus: "img/Stim/TS102.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'm'}},
-  { lr_stimulus: "img/Stim/TS103.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'm'}},
-  { lr_stimulus: "img/Stim/TS110.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'x'}},
-  { lr_stimulus: "img/Stim/TS111.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'x'}},
-  { lr_stimulus: "img/Stim/TS112.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'm'}},
-  { lr_stimulus: "img/Stim/TS113.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'm'}},
-  { lr_stimulus: "img/Stim/TS120.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'x'}},
-  { lr_stimulus: "img/Stim/TS121.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'x'}},
-  { lr_stimulus: "img/Stim/TS122.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'm'}},
-  { lr_stimulus: "img/Stim/TS123.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'm'}},
-  { lr_stimulus: "img/Stim/TS130.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'x'}},
-  { lr_stimulus: "img/Stim/TS131.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'x'}},
-  { lr_stimulus: "img/Stim/TS132.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'm'}},
-  { lr_stimulus: "img/Stim/TS133.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'm'}},
+    { lr_stimulus: repo_site + "img/Stim/TS100.png", data: { test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'x' } },
+    { lr_stimulus: repo_site + "img/Stim/TS101.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'x'}},
+    { lr_stimulus: repo_site + "img/Stim/TS102.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'm'}},
+    { lr_stimulus: repo_site + "img/Stim/TS103.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'm'}},
+    { lr_stimulus: repo_site + "img/Stim/TS110.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'x'}},
+    { lr_stimulus: repo_site + "img/Stim/TS111.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'x'}},
+    { lr_stimulus: repo_site + "img/Stim/TS112.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'm'}},
+    { lr_stimulus: repo_site + "img/Stim/TS113.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'm'}},
+    { lr_stimulus: repo_site + "img/Stim/TS120.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'x'}},
+    { lr_stimulus: repo_site + "img/Stim/TS121.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'x'}},
+    { lr_stimulus: repo_site + "img/Stim/TS122.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'm'}},
+    { lr_stimulus: repo_site + "img/Stim/TS123.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'm'}},
+    { lr_stimulus: repo_site + "img/Stim/TS130.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'x'}},
+    { lr_stimulus: repo_site + "img/Stim/TS131.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'x'}},
+    { lr_stimulus: repo_site + "img/Stim/TS132.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'm'}},
+    { lr_stimulus: repo_site + "img/Stim/TS133.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'm'}},
 ];
 
 
@@ -196,7 +199,7 @@ for(i = 0; i < repetition_1.length; i++)
 
 for (j = 0; j < repetition.length; j++) {
   var stimuli = new Object();
-  stimuli.at_stimulus = 'img/Stim/at_stim' + repetition[j] + '_b.png';
+    stimuli.at_stimulus = repo_site + 'img/Stim/at_stim' + repetition[j] + '_b.png';
 
   stimuli.data = new Object();
 

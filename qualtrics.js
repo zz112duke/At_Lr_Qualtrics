@@ -17,7 +17,8 @@
         task_github + "js/jspsych-6.1.0/plugins/jspsych-html-keyboard-response.js",
         task_github + "js/jspsych-6.1.0/plugins/jspsych-image-keyboard-response.js",
         task_github + "js/jspsych-6.1.0/plugins/jspsych-external-html.js",
-        task_github + "js/jspsych-6.1.0/plugins/jspsych-fullscreen.js"
+        task_github + "js/jspsych-6.1.0/plugins/jspsych-fullscreen.js",
+        task_github + "exp_script.js",
     ];
 
     function loadScript(idx) {
@@ -45,7 +46,7 @@
     function initExp() {
 
         jsPsych.init({
-            timeline: [enter_full, consent, instr_1, at_test_procedure, exit_full],
+            timeline: timeline,
             display_element: 'display_stage',
 
             /* Change 6: Adding the clean up and continue functions.*/

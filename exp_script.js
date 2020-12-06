@@ -348,8 +348,10 @@ var at_test_procedure = {
 // with on_finish handler
 jsPsych.init({
    timeline: [enter_full, consent, instr_1, at_test_procedure, exit_full],
-   display_element: 'display_stage',
-   on_finish: saveData
+    display_element: 'display_stage',
+    on_finish: function () {
+        jsPsych.data.displayData();
+    }
 });
-
+//on_finish: saveData
 

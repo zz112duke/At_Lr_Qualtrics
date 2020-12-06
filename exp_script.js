@@ -353,12 +353,12 @@ var at_test_procedure = {
 timeline.push(at_test_procedure);
 
 
-jsPsych.init({
-    timeline: timeline, //[enter_full, consent, instr_1, at_test_procedure, exit_full]
-    display_element: 'display_stage',
-    on_finish: function () {
-        jsPsych.data.displayData();
-    }
-});
+//jsPsych.init({
+//    timeline: timeline, //[enter_full, consent, instr_1, at_test_procedure, exit_full]
+//    display_element: 'display_stage',
+//    on_finish: function () {
+//        jsPsych.data.displayData();
+//    }
+//});
 //on_finish: saveData
 

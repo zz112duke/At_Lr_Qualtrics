@@ -10,15 +10,13 @@
     qthis.hideNextButton();
 
     /* Change 3: Defining and load required resources */
-    var task_github = "https://zz112duke.github.io/Ar_Lr_Qualtrics/";
+    var task_github = "https://zz112duke.github.io/At_Lr_Qualtrics/";
 
-    // the below urls must be accessible with your browser
-    // for example, https://kywch.github.io/jsPsych/jspsych.js
     var requiredResources = [
         task_github + "js/jspsych-6.1.0/jspsych.js",
-        task_github + "js/jspsych-6.1.0/plugins/jspsych-html-keyboard-response.js"
-        task_github + "js/jspsych-6.1.0/plugins/jspsych-image-keyboard-response.js"
-        task_github + "js/jspsych-6.1.0/plugins/jspsych-external-html.js"
+        task_github + "js/jspsych-6.1.0/plugins/jspsych-html-keyboard-response.js",
+        task_github + "js/jspsych-6.1.0/plugins/jspsych-image-keyboard-response.js",
+        task_github + "js/jspsych-6.1.0/plugins/jspsych-external-html.js",
         task_github + "js/jspsych-6.1.0/plugins/jspsych-fullscreen.js"
     ];
 
@@ -30,8 +28,8 @@
             } else {
                 initExp();
             }
-        });
-    }
+       });
+    };
 
     if (window.Qualtrics && (!window.frameElement || window.frameElement.id !== "mobile-preview-view")) {
         loadScript(0);
@@ -52,15 +50,21 @@
 
             /* Change 6: Adding the clean up and continue functions.*/
             on_finish: function (data) {
+
+                // save to qualtrics embedded data
+                Qualtrics.SurveyEngine.setEmbeddedData("correct", correct);
+                Qualtrics.SurveyEngine.setEmbeddedData("rt", rt);
+                Qualtrics.SurveyEngine.setEmbeddedData("sd", sd);
+                Qualtrics.SurveyEngine.setEmbeddedData("at_TraillingMean", at_TraillingMean);
+                Qualtrics.SurveyEngine.setEmbeddedData("at_RunningMean", at_RunningMean);
                 // clear the stage
                 jQuery('#display_stage').remove();
                 jQuery('#display_stage_background').remove();
 
-                // simulate click on Qualtrics "next" button, making use of the Qualtrics JS API
                 qthis.clickNextButton();
             }
         });
-    }
+      }
 });
 
 Qualtrics.SurveyEngine.addOnReady(function () {

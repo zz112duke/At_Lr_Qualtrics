@@ -43,22 +43,20 @@ timeline.push(instr_1);
 
 var iti_200 = {
   type: "image-keyboard-response",
-  stimulus: repo_site + 'img/Stim/fixation_b.png',
+  stimulus: repo_site + "img/Stim/fixation_b.png",
   choices: jsPsych.NO_KEYS,
   trial_duration: 200,
-  //data: {test_part: 'iti'}
 }
 
 var iti_1000 = {
   type: "image-keyboard-response",
-  stimulus: repo_site + 'img/Stim/fixation_b.png',
+  stimulus: repo_site + "img/Stim/fixation_b.png",
   choices: jsPsych.NO_KEYS,
   trial_duration: 1000,
-  //data: {test_part: 'iti'}
 }
 
 /* define learning trials */
-var lr_stimuli_TS1 = [ //TS1 based on frequency; high a low l
+var lr_stimuli_TS1 = [//TS1 based on frequency; high a low l
     { lr_stimulus: repo_site + "img/Stim/TS000.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'x'}},
     { lr_stimulus: repo_site + "img/Stim/TS001.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'x'}},
     { lr_stimulus: repo_site + "img/Stim/TS002.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'x'}},
@@ -77,8 +75,8 @@ var lr_stimuli_TS1 = [ //TS1 based on frequency; high a low l
     { lr_stimulus: repo_site + "img/Stim/TS032.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'm'}},
     { lr_stimulus: repo_site + "img/Stim/TS033.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'm'}},
 ];
-var lr_stimuli_TS2 = [ //TS2 based on orientation; right a left l
-    { lr_stimulus: repo_site + "img/Stim/TS100.png", data: { test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'x' } },
+var lr_stimuli_TS2 = [//TS2 based on orientation; right a left l
+    { lr_stimulus: repo_site + "img/Stim/TS100.png", data: { test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'x'}},
     { lr_stimulus: repo_site + "img/Stim/TS101.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'x'}},
     { lr_stimulus: repo_site + "img/Stim/TS102.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'm'}},
     { lr_stimulus: repo_site + "img/Stim/TS103.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'm'}},
@@ -112,7 +110,7 @@ var lr_test_TS1 = {
   timeline_variables: lr_stimuli_TS1,
   sample: {
   type: 'with-replacement',
-  size: 1, // 1 trial, with replacement
+  size: 1,
 },
   randomize_order: true,
   repetitions: 1
@@ -123,7 +121,7 @@ var lr_test_TS2 = {
   timeline_variables: lr_stimuli_TS2,
   sample: {
   type: 'with-replacement',
-  size: 1, // 1 trial, with replacement
+  size: 1,
 },
   randomize_order: true,
   repetitions: 1

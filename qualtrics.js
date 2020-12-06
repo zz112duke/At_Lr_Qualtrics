@@ -47,7 +47,7 @@
 
     //you must put your save_data php url here.
     var save_url = "https://users.rcc.uchicago.edu/~zz112/exp_data/save_data.php";
-    var data_dir = at_lr_online;
+    var data_dir = task_name;
 
     //my preference is to include the task and sbj_id in the file name
     var file_name = task_name + '_' + sbj_id;

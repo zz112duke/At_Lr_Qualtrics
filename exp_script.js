@@ -10,8 +10,19 @@ var file_name = task_name + '_' + sbj_id;
 
 var repo_site = "https://zz112duke.github.io/At_Lr_Qualtrics/";
 
-var timeline = [];
+//Functions
+// replace b with g and create the corresponding at_fix stimuli
+function rep(str) {
+    str = setCharAt(str, 64, 'g');
+    return str
+}
 
+function setCharAt(str, index, chr) {
+    if (index > str.length - 1) return str;
+    return str.substring(0, index) + chr + str.substring(index + 1);
+}
+
+var timeline = [];
 var enter_full = {
   type: 'fullscreen',
   fullscreen_mode: true
@@ -65,12 +76,184 @@ var iti_1000 = {
   trial_duration: 1000,
 }
 
+//Attention practice stim
+var stim_names_freq = ["img/Stim/at_stim000_b.png", "img/Stim/at_stim001_b.png",
+    "img/Stim/at_stim002_b.png", "img/Stim/at_stim003_b.png", "img/Stim/at_stim010_b.png",
+    "img/Stim/at_stim011_b.png", "img/Stim/at_stim012_b.png", "img/Stim/at_stim013_b.png",
+    "img/Stim/at_stim020_b.png", "img/Stim/at_stim021_b.png", "img/Stim/at_stim022_b.png",
+    "img/Stim/at_stim023_b.png", "img/Stim/at_stim030_b.png", "img/Stim/at_stim031_b.png",
+    "img/Stim/at_stim032_b.png", "img/Stim/at_stim033_b.png"]
+var stim_names_infreq = ["img/Stim/at_stim100_b.png", "img/Stim/at_stim101_b.png",
+    "img/Stim/at_stim102_b.png", "img/Stim/at_stim103_b.png", "img/Stim/at_stim110_b.png",
+    "img/Stim/at_stim111_b.png", "img/Stim/at_stim112_b.png", "img/Stim/at_stim113_b.png",
+    "img/Stim/at_stim120_b.png", "img/Stim/at_stim121_b.png", "img/Stim/at_stim122_b.png",
+    "img/Stim/at_stim123_b.png", "img/Stim/at_stim130_b.png", "img/Stim/at_stim131_b.png",
+    "img/Stim/at_stim132_b.png", "img/Stim/at_stim133_b.png"]
+
+/* define attention trials */
+
+var at_stimuli = []
+var prac_stimuli = []
+var repetition = []
+for (i = 0; i < 720; i++) {
+    //var stimuli = new Object();
+    stimuli_freq = stim_names_freq[Math.floor((Math.random()) * stim_names_freq.length)];
+    repetition.push(String(stimuli_freq.charAt(16)) + String(stimuli_freq.charAt(17)) + String(stimuli_freq.charAt(18)));
+
+
+    if (i != 0) {
+
+        while (repetition[i] == repetition[i - 1]) {
+            stimuli_freq = stim_names_freq[Math.floor((Math.random()) * stim_names_freq.length)];
+            repetition[i] = (String(stimuli_freq.charAt(16)) + String(stimuli_freq.charAt(17)) + String(stimuli_freq.charAt(18)));
+            if (repetition[i] != repetition[i - 1]) { break };
+        }
+    }
+
+}
+
+var repetition_1 = []
+for (i = 0; i < 80; i++) {
+
+    stimuli_infreq = stim_names_infreq[Math.floor((Math.random()) * stim_names_infreq.length)];
+    repetition_1.push(String(stimuli_infreq.charAt(16)) + String(stimuli_infreq.charAt(17)) + String(stimuli_infreq.charAt(18)));
+    //console.log(repetition_1[i])
+
+
+    if (i != 0) {
+
+        while (repetition_1[i] == repetition_1[i - 1]) {
+            stimuli_infreq = stim_names_infreq[Math.floor((Math.random()) * stim_names_infreq.length)];
+            repetition_1[i] = (String(stimuli_infreq.charAt(16)) + String(stimuli_infreq.charAt(17)) + String(stimuli_infreq.charAt(18)));
+            //console.log(repetition_1[1])
+            if (repetition_1[i] != repetition_1[i - 1]) { break };
+        }
+    }
+
+}
+
+for (i = 0; i < repetition_1.length; i++) {
+    repetition.splice(Math.floor((Math.random() * repetition.length)), 0, repetition_1[i]);
+};
+
+var repetition_1_prac = repetition_1.slice(0, 2);
+var repetition_prac = repetition.slice(0, 18);
+for (i = 0; i < repetition_1_prac.length; i++) {
+    repetition_prac.splice(Math.floor((Math.random() * repetition_prac.length)), 0, repetition_1_prac[i]);
+}
+
+for (j = 0; j < repetition.length; j++) {
+    var stimuli = new Object();
+    stimuli.at_stimulus = repo_site + 'img/Stim/at_stim' + repetition[j] + '_b.png';
+
+    stimuli.data = new Object();
+
+
+    if (stimuli.at_stimulus.charAt(60) == 0) {
+        stimuli.data.at_TrialType = 'frequent';
+        stimuli.data.correct_response = 'g'
+    } else {
+        stimuli.data.at_TrialType = 'infrequent';
+        stimuli.data.correct_response = ''
+    }
+    stimuli.at_fix = rep(stimuli.at_stimulus);
+
+    stimuli.data.test_part = 'test';
+    stimuli.data.TaskType = 'at';
+
+    at_stimuli.push(stimuli);
+
+}
+
+for (j = 0; j < repetition_prac.length; j++) {
+    var stimuli_prac = new Object();
+    stimuli_prac.at_stimulus_prac = repo_site + 'img/Stim/at_stim' + repetition_prac[j] + '_b.png';
+
+    stimuli_prac.data = new Object();
+
+
+    if (stimuli_prac.at_stimulus_prac.charAt(60) == 0) {
+        stimuli_prac.data.at_TrialType = 'frequent';
+        stimuli_prac.data.correct_response = 'g'
+    } else {
+        stimuli_prac.data.at_TrialType = 'infrequent';
+        stimuli_prac.data.correct_response = ''
+    }
+    stimuli_prac.at_fix = rep(stimuli_prac.at_stimulus_prac);
+
+    stimuli_prac.data.test_part = 'prac';
+    stimuli_prac.data.TaskType = 'prac';
+    prac_stimuli.push(stimuli_prac);
+}
+
+var fix_duration = 800;
+var prac = {
+    timeline: [
+        {
+            type: "image-keyboard-response",
+            stimulus: jsPsych.timelineVariable('at_stimulus_prac'),
+            choices: ['g'],
+            data: jsPsych.timelineVariable('data'),
+            trial_duration: 800,
+            on_finish: function (data) {
+                fix_duration = 800 - (jsPsych.data.get().filter({ TaskType: 'prac' }).last(1).select('rt').values);
+                data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
+            }
+        },
+
+        {
+            type: "image-keyboard-response",
+            stimulus: jsPsych.timelineVariable('at_fix'),
+            choices: jsPsych.NO_KEYS,
+            response_ends_trial: false,
+            trial_duration: fix_duration
+        }],
+};
+
+var prac_feedback = {
+    type: 'html-keyboard-response',
+    stimulus: function () {
+        var last_trial_correct = jsPsych.data.get().filter({ TaskType: 'prac' }).last(1).values()[0].correct;
+        if (last_trial_correct) {
+            return '<p style="color:white"> Correct!</p>'
+        } else {
+            return '<p style="color:white"> Wrong.</p>'
+        }
+    },
+    choices: jsPsych.NO_KEYS,
+    trial_duration: 1000,
+};
+
+var prac_block = {
+    timeline: [prac, prac_feedback, iti_200],
+    timeline_variables: prac_stimuli,
+    randomize_order: false,
+    repetitions: 1
+}
+timeline.push(prac_block)
+
+var debrief = {
+    type: "html-keyboard-response",
+    stimulus: function () {
+
+        var trials = jsPsych.data.get().filter({ test_part: 'prac' });
+        var correct_trials = trials.filter({ correct: true });
+        //var correct_trials = jsPsych.data.get().filter({TaskType: 'prac'}).values()[0].correct; //.select('correct')
+        var accuracy = Math.round(correct_trials.count() / trials.count() * 100);
+
+        return "<p>You responded correctly on " + accuracy + "% of the trials.</p>" +
+            "<p>Remember that you should respond as accurately as possible. Press any key to start the main experiment.</p>";
+
+    }
+};
+timeline.push(debrief);
+
+
 /* define learning trials */
 var lr_stimuli_TS1 = [//TS1 based on frequency; high a low l
     { lr_stimulus: repo_site + "img/Stim/TS000.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'x'}},
     { lr_stimulus: repo_site + "img/Stim/TS001.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'x'}},
     { lr_stimulus: repo_site + "img/Stim/TS002.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'x'}},
-    { lr_stimulus: repo_site + "img/Stim/TS003.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'x'}},
     { lr_stimulus: repo_site + "img/Stim/TS003.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'x'}},
     { lr_stimulus: repo_site + "img/Stim/TS010.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'x'}},
     { lr_stimulus: repo_site + "img/Stim/TS011.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'x'}},
@@ -144,107 +327,14 @@ type: 'html-keyboard-response',
 stimulus: function(){
   var last_trial_correct = jsPsych.data.get().filter({TaskType: 'lr'}).last(1).values()[0].correct;
   if(last_trial_correct){
-    return '<p style="color:white"> Correct!</p>'
+    return '<p style="color:black"> Correct!</p>'
   } else {
-    return '<p style="color:white"> Wrong.</p>'
+    return '<p style="color:black"> Wrong.</p>'
   }
 },
 choices: jsPsych.NO_KEYS,
 trial_duration: 1000,
 }
-
-/* define attention trials */
-var stim_names_freq = ["img/Stim/at_stim000_b.png","img/Stim/at_stim001_b.png",
-"img/Stim/at_stim002_b.png", "img/Stim/at_stim003_b.png", "img/Stim/at_stim010_b.png",
-"img/Stim/at_stim011_b.png", "img/Stim/at_stim012_b.png", "img/Stim/at_stim013_b.png",
-"img/Stim/at_stim020_b.png", "img/Stim/at_stim021_b.png", "img/Stim/at_stim022_b.png",
-"img/Stim/at_stim023_b.png", "img/Stim/at_stim030_b.png", "img/Stim/at_stim031_b.png",
-"img/Stim/at_stim032_b.png", "img/Stim/at_stim033_b.png"]
-var stim_names_infreq = ["img/Stim/at_stim100_b.png", "img/Stim/at_stim101_b.png",
-"img/Stim/at_stim102_b.png", "img/Stim/at_stim103_b.png", "img/Stim/at_stim110_b.png",
-"img/Stim/at_stim111_b.png", "img/Stim/at_stim112_b.png", "img/Stim/at_stim113_b.png",
-"img/Stim/at_stim120_b.png", "img/Stim/at_stim121_b.png", "img/Stim/at_stim122_b.png",
-"img/Stim/at_stim123_b.png", "img/Stim/at_stim130_b.png", "img/Stim/at_stim131_b.png",
-"img/Stim/at_stim132_b.png", "img/Stim/at_stim133_b.png"]
-var at_stimuli = []
-var repetition = []
-for (i = 0; i < 1440; i++) {
-  //var stimuli = new Object();
-  stimuli_freq = stim_names_freq[Math.floor((Math.random()) * stim_names_freq.length)];
-  repetition.push(String(stimuli_freq.charAt(16))+ String(stimuli_freq.charAt(17)) + String(stimuli_freq.charAt(18)));
-
-
-  if (i != 0) {
-
-      while(repetition[i] == repetition[i-1]) {
-        stimuli_freq = stim_names_freq[Math.floor((Math.random()) * stim_names_freq.length)];
-        repetition[i]=(String(stimuli_freq.charAt(16))+ String(stimuli_freq.charAt(17)) + String(stimuli_freq.charAt(18)));
-        if (repetition[i] != repetition[i-1]) {break};
-      }
-  }
-
-}
-
-var repetition_1 = []
-for (i = 0; i < 160; i++) {
-
-  stimuli_infreq = stim_names_infreq[Math.floor((Math.random()) * stim_names_infreq.length)];
-  repetition_1.push(String(stimuli_infreq.charAt(16))+ String(stimuli_infreq.charAt(17)) + String(stimuli_infreq.charAt(18)));
-  //console.log(repetition_1[i])
-
-
-  if (i != 0) {
-
-      while(repetition_1[i] == repetition_1[i-1]) {
-        stimuli_infreq = stim_names_infreq[Math.floor((Math.random()) * stim_names_infreq.length)];
-        repetition_1[i]=(String(stimuli_infreq.charAt(16))+ String(stimuli_infreq.charAt(17)) + String(stimuli_infreq.charAt(18)));
-        //console.log(repetition_1[1])
-        if (repetition_1[i] != repetition_1[i-1]) {break};
-      }
-  }
-
-}
-
-for(i = 0; i < repetition_1.length; i++)
-{
-    repetition.splice(Math.floor((Math.random() * repetition.length)), 0, repetition_1[i]);
-}
-
-
-for (j = 0; j < repetition.length; j++) {
-  var stimuli = new Object();
-    stimuli.at_stimulus = repo_site + 'img/Stim/at_stim' + repetition[j] + '_b.png';
-
-  stimuli.data = new Object();
-
-
-  if (stimuli.at_stimulus.charAt(60) == 0) {
-    stimuli.data.at_TrialType = 'frequent';
-    stimuli.data.correct_response = 'g'
-  } else {
-    stimuli.data.at_TrialType = 'infrequent';
-    stimuli.data.correct_response = ''
-  }
-  stimuli.at_fix = rep(stimuli.at_stimulus);
-
-  stimuli.data.test_part = 'test';
-  stimuli.data.TaskType = 'at';
-
-  at_stimuli.push(stimuli);
-
-}
-//Functions
-// replace b with g and create the corresponding at_fix stimuli
-  function rep(str) {
-      str = setCharAt(str,64,'g');
-      return str
-  }
-
-  function setCharAt(str,index,chr) {
-      if(index > str.length-1) return str;
-      return str.substring(0,index) + chr + str.substring(index+1);
-  }
-
 
 /* Combine learning trials */
 var lr_node = false;

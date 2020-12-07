@@ -215,9 +215,9 @@ var prac_feedback = {
     stimulus: function () {
         var last_trial_correct = jsPsych.data.get().filter({ TaskType: 'prac' }).last(1).values()[0].correct;
         if (last_trial_correct) {
-            return '<p style="color:white"> Correct!</p>'
+            return '<p style="color:black"> Correct!</p>'
         } else {
-            return '<p style="color:white"> Wrong.</p>'
+            return '<p style="color:black"> Wrong.</p>'
         }
     },
     choices: jsPsych.NO_KEYS,
@@ -247,6 +247,21 @@ var debrief = {
     }
 };
 timeline.push(debrief);
+var instr_2 = {
+    type: 'external-html',
+    url: repo_site + "content/instr_2.html",
+    cont_btn: 'next',
+};
+timeline.push(instr_2);
+
+
+
+var instr_3 = {
+    type: 'external-html',
+    url: repo_site + "content/instr_3.html",
+    cont_btn: 'next',
+};
+timeline.push(instr_3);
 
 
 /* define learning trials */

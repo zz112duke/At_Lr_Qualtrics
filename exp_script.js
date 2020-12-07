@@ -53,7 +53,7 @@ var consent = {
   cont_fn: check_consent,
   cont_btn: 'start',
 };
-timeline.push(consent);
+//timeline.push(consent);
 
 var instr_1 = {
   type: 'external-html',

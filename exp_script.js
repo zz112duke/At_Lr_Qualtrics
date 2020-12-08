@@ -293,10 +293,8 @@ var prac_lr_feedback = {
 var prac_block2 = {
     timeline: [prac_block2, prac_lr_feedback, iti_1000],
     timeline_variables: lr_prac,
-    sample: {
-        type: 'fixed-repetitions',
-        size: 1,
-    },
+    randomize_order: false,
+    repetitions: 1
 };
 timeline.push(prac_block2);
 

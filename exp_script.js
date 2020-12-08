@@ -53,7 +53,7 @@ var consent = {
   cont_fn: check_consent,
   cont_btn: 'start',
 };
-//timeline.push(consent);
+timeline.push(consent);
 
 var instr_1 = {
   type: 'external-html',
@@ -247,6 +247,7 @@ var debrief = {
     }
 };
 timeline.push(debrief);
+
 var instr_2 = {
     type: 'external-html',
     url: repo_site + "content/instr_2.html",
@@ -254,7 +255,66 @@ var instr_2 = {
 };
 timeline.push(instr_2);
 
+var lr_prac = [
+    { lr_stimulus: repo_site + "img/Stim/TS030.png", data: { test_part: 'prac_lr', TaskType: 'prac_lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'm' } },
+    { lr_stimulus: repo_site + "img/Stim/TS031.png", data: { test_part: 'prac_lr', TaskType: 'prac_lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'x' } },
+    { lr_stimulus: repo_site + "img/Stim/TS032.png", data: { test_part: 'prac_lr', TaskType: 'prac_lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'm' } },
+    { lr_stimulus: repo_site + "img/Stim/TS033.png", data: { test_part: 'prac_lr', TaskType: 'prac_lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'x' } },
+    { lr_stimulus: repo_site + "img/Stim/TS112.png", data: { test_part: 'prac_lr', TaskType: 'prac_lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'm' } },
+    { lr_stimulus: repo_site + "img/Stim/TS113.png", data: { test_part: 'prac_lr', TaskType: 'prac_lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'x' } },
+    { lr_stimulus: repo_site + "img/Stim/TS120.png", data: { test_part: 'prac_lr', TaskType: 'prac_lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'x' } },
+    { lr_stimulus: repo_site + "img/Stim/TS113.png", data: { test_part: 'prac_lr', TaskType: 'prac_lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'm' } },
+];
 
+var prac_lr = {
+    type: "image-keyboard-response",
+    stimulus: jsPsych.timelineVariable('lr_stimulus'),
+    choices: ['x', 'm'],
+    data: jsPsych.timelineVariable('data'),
+    on_finish: function (data) {
+        data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
+    }
+};
+
+var prac_lr_feedback = {
+    type: 'html-keyboard-response',
+    stimulus: function () {
+        var last_trial_correct = jsPsych.data.get().filter({ TaskType: 'prac_lr' }).last(1).values()[0].correct;
+        if (last_trial_correct) {
+            return '<p style="color:black"> Correct!</p>'
+        } else {
+            return '<p style="color:black"> Wrong.</p>'
+        }
+    },
+    choices: jsPsych.NO_KEYS,
+    trial_duration: 1000,
+};
+
+var prac_block2 = {
+    timeline: [prac_block2, prac_lr_feedback, iti_1000],
+    timeline_variables: lr_prac,
+    sample: {
+        type: 'fixed-repetitions',
+        size: 1,
+    },
+};
+timeline.push(prac_block2);
+
+var debrief_2 = {
+    type: "html-keyboard-response",
+    stimulus: function () {
+
+        var trials = jsPsych.data.get().filter({ test_part: 'prac_lr' });
+        var correct_trials = trials.filter({ correct: true });
+        //var correct_trials = jsPsych.data.get().filter({TaskType: 'prac'}).values()[0].correct; //.select('correct')
+        var accuracy = Math.round(correct_trials.count() / trials.count() * 100);
+
+        return "<p>You responded correctly on " + accuracy + "% of the trials.</p>" +
+            "<p>Remember that you should respond as accurately as possible. Press any key to start the main experiment.</p>";
+
+    }
+};
+timeline.push(debrief_2);
 
 var instr_3 = {
     type: 'external-html',
@@ -301,7 +361,6 @@ var lr_stimuli_TS2 = [//TS2 based on orientation; right a left l
     { lr_stimulus: repo_site + "img/Stim/TS132.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'm'}},
     { lr_stimulus: repo_site + "img/Stim/TS133.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'm'}},
 ];
-
 
 var learning = {
   type: "image-keyboard-response",

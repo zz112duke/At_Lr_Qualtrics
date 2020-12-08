@@ -291,7 +291,7 @@ var prac_lr_feedback = {
 };
 
 var prac_block2 = {
-    timeline: [prac_block2, prac_lr_feedback, iti_1000],
+    timeline: [prac_lr, prac_lr_feedback, iti_1000],
     timeline_variables: lr_prac,
     randomize_order: false,
     repetitions: 1

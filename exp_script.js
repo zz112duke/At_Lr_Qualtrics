@@ -242,7 +242,7 @@ var debrief = {
         var accuracy = Math.round(correct_trials.count() / trials.count() * 100);
 
         return "<p>You responded correctly on " + accuracy + "% of the trials.</p>" +
-            "<p>Remember that you should respond as accurately as possible. Press any key to start the main experiment.</p>";
+            "<p>Remember that you should respond as accurately as possible. Press any key to move on.</p>";
 
     }
 };
@@ -304,11 +304,10 @@ var debrief_2 = {
 
         var trials = jsPsych.data.get().filter({ test_part: 'prac_lr' });
         var correct_trials = trials.filter({ correct: true });
-        //var correct_trials = jsPsych.data.get().filter({TaskType: 'prac'}).values()[0].correct; //.select('correct')
         var accuracy = Math.round(correct_trials.count() / trials.count() * 100);
 
         return "<p>You responded correctly on " + accuracy + "% of the trials.</p>" +
-            "<p>Remember that you should respond as accurately as possible. Press any key to start the main experiment.</p>";
+            "<p>Remember that you should respond as accurately as possible. Press any key to move on.</p>";
 
     }
 };

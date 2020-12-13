@@ -236,7 +236,7 @@ var debrief = {
 
         var trials = jsPsych.data.get().filter({ test_part: 'prac' });
         var correct_trials = trials.filter({ correct: true });
-
+        var accuracy = Math.round(correct_trials.count() / trials.count() * 100);
         return "<p>You responded correctly on " + accuracy + "% of the trials.</p>" +
             "<p>Remember that you should respond as accurately as possible. Press any key to move on.</p>";
 

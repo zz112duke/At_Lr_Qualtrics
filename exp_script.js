@@ -29,11 +29,6 @@ var enter_full = {
 };
 timeline.push(enter_full);
 
-//var exit_full = {
-//  type: 'fullscreen',
-//  fullscreen_mode: false
-//};
-//timeline.push(exit_full)
 
 // Give consent
 var check_consent = function(elem) {
@@ -186,7 +181,6 @@ for (j = 0; j < repetition_prac.length; j++) {
     prac_stimuli.push(stimuli_prac);
 }
 
-var fix_duration = 800;
 var prac = {
     timeline: [
         {
@@ -196,7 +190,6 @@ var prac = {
             data: jsPsych.timelineVariable('data'),
             trial_duration: 800,
             on_finish: function (data) {
-                fix_duration = 800 - (jsPsych.data.get().filter({ TaskType: 'prac' }).last(1).select('rt').values);
                 data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
             }
         },
@@ -206,7 +199,12 @@ var prac = {
             stimulus: jsPsych.timelineVariable('at_fix'),
             choices: jsPsych.NO_KEYS,
             response_ends_trial: false,
-            trial_duration: fix_duration
+            trial_duration:function(data) {
+                    if (jsPsych.data.get().filter({ TaskType: 'prac' }).last(1).select('rt').values[0] == null) {
+                        var fix_duration = 0
+                    } else { var fix_duration = 800 - (jsPsych.data.get().filter({ TaskType: 'prac' }).last(1).select('rt').values[0]); };
+                    return fix_duration
+                }
         }],
 };
 
@@ -238,8 +236,6 @@ var debrief = {
 
         var trials = jsPsych.data.get().filter({ test_part: 'prac' });
         var correct_trials = trials.filter({ correct: true });
-        //var correct_trials = jsPsych.data.get().filter({TaskType: 'prac'}).values()[0].correct; //.select('correct')
-        var accuracy = Math.round(correct_trials.count() / trials.count() * 100);
 
         return "<p>You responded correctly on " + accuracy + "% of the trials.</p>" +
             "<p>Remember that you should respond as accurately as possible. Press any key to move on.</p>";
@@ -255,63 +251,63 @@ var instr_2 = {
 };
 timeline.push(instr_2);
 
-var lr_prac = [
-    { lr_stimulus: repo_site + "img/Stim/TS030.png", data: { test_part: 'prac_lr', TaskType: 'prac_lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'm' } },
-    { lr_stimulus: repo_site + "img/Stim/TS031.png", data: { test_part: 'prac_lr', TaskType: 'prac_lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'x' } },
-    { lr_stimulus: repo_site + "img/Stim/TS032.png", data: { test_part: 'prac_lr', TaskType: 'prac_lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'm' } },
-    { lr_stimulus: repo_site + "img/Stim/TS033.png", data: { test_part: 'prac_lr', TaskType: 'prac_lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'x' } },
-    { lr_stimulus: repo_site + "img/Stim/TS112.png", data: { test_part: 'prac_lr', TaskType: 'prac_lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'm' } },
-    { lr_stimulus: repo_site + "img/Stim/TS113.png", data: { test_part: 'prac_lr', TaskType: 'prac_lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'x' } },
-    { lr_stimulus: repo_site + "img/Stim/TS120.png", data: { test_part: 'prac_lr', TaskType: 'prac_lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'x' } },
-    { lr_stimulus: repo_site + "img/Stim/TS113.png", data: { test_part: 'prac_lr', TaskType: 'prac_lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'm' } },
-];
+//var lr_prac = [
+//    { lr_stimulus: repo_site + "img/Stim/TS030.png", data: { test_part: 'prac_lr', TaskType: 'prac_lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'm' } },
+//    { lr_stimulus: repo_site + "img/Stim/TS031.png", data: { test_part: 'prac_lr', TaskType: 'prac_lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'x' } },
+//    { lr_stimulus: repo_site + "img/Stim/TS032.png", data: { test_part: 'prac_lr', TaskType: 'prac_lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'm' } },
+//    { lr_stimulus: repo_site + "img/Stim/TS033.png", data: { test_part: 'prac_lr', TaskType: 'prac_lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'x' } },
+//    { lr_stimulus: repo_site + "img/Stim/TS112.png", data: { test_part: 'prac_lr', TaskType: 'prac_lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'm' } },
+//    { lr_stimulus: repo_site + "img/Stim/TS113.png", data: { test_part: 'prac_lr', TaskType: 'prac_lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'x' } },
+//    { lr_stimulus: repo_site + "img/Stim/TS120.png", data: { test_part: 'prac_lr', TaskType: 'prac_lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'x' } },
+//    { lr_stimulus: repo_site + "img/Stim/TS113.png", data: { test_part: 'prac_lr', TaskType: 'prac_lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'm' } },
+//];
 
-var prac_lr = {
-    type: "image-keyboard-response",
-    stimulus: jsPsych.timelineVariable('lr_stimulus'),
-    choices: ['x', 'm'],
-    data: jsPsych.timelineVariable('data'),
-    on_finish: function (data) {
-        data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
-    }
-};
+//var prac_lr = {
+//    type: "image-keyboard-response",
+//    stimulus: jsPsych.timelineVariable('lr_stimulus'),
+//    choices: ['x', 'm'],
+//    data: jsPsych.timelineVariable('data'),
+//    on_finish: function (data) {
+//        data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
+//    }
+//};
 
-var prac_lr_feedback = {
-    type: 'html-keyboard-response',
-    stimulus: function () {
-        var last_trial_correct = jsPsych.data.get().filter({ TaskType: 'prac_lr' }).last(1).values()[0].correct;
-        if (last_trial_correct) {
-            return '<p style="color:black"> Correct!</p>'
-        } else {
-            return '<p style="color:black"> Wrong.</p>'
-        }
-    },
-    choices: jsPsych.NO_KEYS,
-    trial_duration: 1000,
-};
+//var prac_lr_feedback = {
+//    type: 'html-keyboard-response',
+//    stimulus: function () {
+//        var last_trial_correct = jsPsych.data.get().filter({ TaskType: 'prac_lr' }).last(1).values()[0].correct;
+//        if (last_trial_correct) {
+//            return '<p style="color:black"> Correct!</p>'
+//        } else {
+//            return '<p style="color:black"> Wrong.</p>'
+//        }
+//    },
+//    choices: jsPsych.NO_KEYS,
+//    trial_duration: 1000,
+//};
 
-var prac_block2 = {
-    timeline: [prac_lr, prac_lr_feedback, iti_1000],
-    timeline_variables: lr_prac,
-    randomize_order: false,
-    repetitions: 1
-};
-timeline.push(prac_block2);
+//var prac_block2 = {
+//    timeline: [prac_lr, prac_lr_feedback, iti_1000],
+//    timeline_variables: lr_prac,
+//    randomize_order: false,
+//    repetitions: 1
+//};
+//timeline.push(prac_block2);
 
-var debrief_2 = {
-    type: "html-keyboard-response",
-    stimulus: function () {
+//var debrief_2 = {
+//    type: "html-keyboard-response",
+//    stimulus: function () {
 
-        var trials = jsPsych.data.get().filter({ test_part: 'prac_lr' });
-        var correct_trials = trials.filter({ correct: true });
-        var accuracy = Math.round(correct_trials.count() / trials.count() * 100);
+//        var trials = jsPsych.data.get().filter({ test_part: 'prac_lr' });
+//        var correct_trials = trials.filter({ correct: true });
+//        var accuracy = Math.round(correct_trials.count() / trials.count() * 100);
 
-        return "<p>You responded correctly on " + accuracy + "% of the trials.</p>" +
-            "<p>Remember that you should respond as accurately as possible. Press any key to move on.</p>";
+//        return "<p>You responded correctly on " + accuracy + "% of the trials.</p>" +
+//            "<p>Remember that you should respond as accurately as possible. Press any key to move on.</p>";
 
-    }
-};
-timeline.push(debrief_2);
+//    }
+//};
+//timeline.push(debrief_2);
 
 var instr_3 = {
     type: 'external-html',
@@ -409,7 +405,6 @@ trial_duration: 1000,
 
 /* Combine learning trials */
 var lr_node = false;
-var fix_duration = 800;
 var attention = {
   timeline:[
   {type: "image-keyboard-response",
@@ -418,8 +413,6 @@ var attention = {
   data: jsPsych.timelineVariable('data'),
   trial_duration: 800,
   on_finish: function(data){
-    fix_duration = 800 - (jsPsych.data.get().filter({TaskType: 'at'}).last(1).select('rt').values);
-    //console.log(fix_duration)
 
     var at_counter = jsPsych.data.get().filter({TaskType: 'at'}).select('rt').values.length
     var lr_counter = jsPsych.data.get().filter({TaskType: 'lr'}).select('rt').values.length //CHECK!!!
@@ -485,7 +478,12 @@ var attention = {
   stimulus: jsPsych.timelineVariable('at_fix'),
   choices: jsPsych.NO_KEYS,
   response_ends_trial: false,
-  trial_duration:fix_duration
+  trial_duration: function (data) {
+        if (jsPsych.data.get().filter({ TaskType: 'at' }).last(1).select('rt').values[0] == null) {
+            var fix_duration = 0
+        } else { var fix_duration = 800 - (jsPsych.data.get().filter({ TaskType: 'at' }).last(1).select('rt').values[0]); };
+        return fix_duration
+    }
 }],
 }
 

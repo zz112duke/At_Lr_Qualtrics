@@ -71,7 +71,7 @@ var iti_1000 = {
   trial_duration: 1000,
 }
 
-//Attention practice stim
+// Attention practice stim
 var stim_names_freq = ["img/Stim/at_stim000_b.png", "img/Stim/at_stim001_b.png",
     "img/Stim/at_stim002_b.png", "img/Stim/at_stim003_b.png", "img/Stim/at_stim010_b.png",
     "img/Stim/at_stim011_b.png", "img/Stim/at_stim012_b.png", "img/Stim/at_stim013_b.png",
@@ -215,7 +215,7 @@ var prac_feedback = {
         if (last_trial_correct) {
             return '<p style="color:black"> Correct!</p>'
         } else {
-            return '<p style="color:black"> Wrong.</p>'
+            return '<p style="color:black"> Incorrect.</p>'
         }
     },
     choices: jsPsych.NO_KEYS,
@@ -396,7 +396,7 @@ stimulus: function(){
   if(last_trial_correct){
     return '<p style="color:black"> Correct!</p>'
   } else {
-    return '<p style="color:black"> Wrong.</p>'
+    return '<p style="color:black"> Incorrect.</p>'
   }
 },
 choices: jsPsych.NO_KEYS,

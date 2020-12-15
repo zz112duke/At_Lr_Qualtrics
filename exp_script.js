@@ -184,6 +184,17 @@ for (j = 0; j < repetition_prac.length; j++) {
     prac_stimuli.push(stimuli_prac);
 }
 
+var images = [];
+function preload() {
+    for (var i = 0; i < arguments.length; i++) {
+        images[i] = new Image();
+        images[i].src = preload.arguments[i];
+    }
+};
+
+//-- usage --//
+preload(preload_prac);
+
 var prac = {
     timeline: [
         {

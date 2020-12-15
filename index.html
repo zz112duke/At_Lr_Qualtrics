@@ -61,6 +61,17 @@
 
 <script>//can later move this to the end of exp_script.js
 
+    var images = [];
+    function preload() {
+        for (var i = 0; i < arguments.length; i++) {
+            images[i] = new Image();
+            images[i].src = preload.arguments[i];
+        }
+    };
+
+    //-- usage --//
+    preload(preload_prac);
+
     jsPsych.init({
         timeline: timeline,
         display_element: 'display_stage',
@@ -89,7 +100,3 @@
 </div>
 
 </html>
-
-<!--function preloadImage(url) {
-    var img = new Image();
-    img.src = url;}-->

@@ -59,20 +59,21 @@
 
 </body>
 
-<script> //can later move this to the end of exp_script.js
+<script>//can later move this to the end of exp_script.js
+
     jsPsych.init({
         timeline: timeline,
         display_element: 'display_stage',
-        preload_images: prac_stimuli, //added to prevent flashing
-        on_finish: function() {
+        preload_images: preload_prac, //added to prevent flashing
+        show_preload_progress_bar: true,
+        on_finish: function () {
             save_data_csv();
-            }
         }
-    });
-</script>
+    }
+    });</script>
 
-    <style>
-        .footer {
+<style>
+    .footer {
         position: fixed;
         left: 0;
         bottom: 0;
@@ -83,8 +84,12 @@
     }
 </style>
 
-        <div class="footer">
-            <p>CAB Lab The University of Chicago</p>
-        </div>
+<div class="footer">
+    <p>CAB Lab The University of Chicago</p>
+</div>
 
-</html >
+</html>
+
+<!--function preloadImage(url) {
+    var img = new Image();
+    img.src = url;}-->

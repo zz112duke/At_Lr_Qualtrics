@@ -141,7 +141,7 @@ for (i = 0; i < repetition_1_prac.length; i++) {
 for (j = 0; j < repetition.length; j++) {
     var stimuli = new Object();
     stimuli.at_stimulus = repo_site + 'img/Stim/at_stim' + repetition[j] + '_b.png';
-    preload_list.push(repo_site + 'img/Stim/at_stim' + repetition[j] + '_b.png');
+    preload_list.push('"' + repo_site + 'img/Stim/at_stim' + repetition[j] + '_b.png'+'"');
 
     stimuli.data = new Object();
 
@@ -165,7 +165,7 @@ for (j = 0; j < repetition.length; j++) {
 for (j = 0; j < repetition_prac.length; j++) {
     var stimuli_prac = new Object();
     stimuli_prac.at_stimulus_prac = repo_site + 'img/Stim/at_stim' + repetition_prac[j] + '_b.png';
-    preload_list.push(repo_site + 'img/Stim/at_stim' + repetition_prac[j] + '_b.png');
+    preload_list.push('"' + repo_site + 'img/Stim/at_stim' + repetition_prac[j] + '_b.png' + '"');
 
     stimuli_prac.data = new Object();
 

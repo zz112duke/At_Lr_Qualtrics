@@ -154,6 +154,7 @@ for (j = 0; j < repetition.length; j++) {
         stimuli.data.correct_response = ''
     }
     stimuli.at_fix = rep(stimuli.at_stimulus);
+    preload_list.push(rep(stimuli.at_stimulus));
 
     stimuli.data.test_part = 'test';
     stimuli.data.TaskType = 'at';
@@ -178,6 +179,7 @@ for (j = 0; j < repetition_prac.length; j++) {
         stimuli_prac.data.correct_response = ''
     }
     stimuli_prac.at_fix = rep(stimuli_prac.at_stimulus_prac);
+    preload_list.push(rep(stimuli_prac.at_stimulus_prac));
 
     stimuli_prac.data.test_part = 'prac';
     stimuli_prac.data.TaskType = 'prac';

@@ -554,5 +554,4 @@ jsPsych.init({
     on_finish: function () {
         save_data_csv();
     }
-}
-    });
+});

@@ -60,18 +60,19 @@
 
 </body>
 
-<!--<script>//can later move this to the end of exp_script.js
+<script>//can later move this to the end of exp_script.js
 
-
-    jsPsych.init({
-        timeline: timeline,
-        display_element: 'display_stage',
-        preload_images: preload_prac, //added to prevent flashing
-        on_finish: function () {
-            save_data_csv();
+    var images = [];
+    function preload() {
+        for (var i = 0; i < arguments.length; i++) {
+            images[i] = new Image();
+            images[i].src = preload.arguments[i];
         }
-    }
-    });</script>-->
+    };
+
+    //-- usage --//
+    preload(preload_list);
+</script>
 
 <style>
     .footer {

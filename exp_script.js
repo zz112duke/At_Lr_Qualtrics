@@ -199,9 +199,7 @@ var prac = {
     timeline: [
         {
             type: "image-keyboard-response",
-            stimulus: preload_prac,
-                //jsPsych.timelineVariable('at_stimulus_prac'),
-
+            stimulus:jsPsych.timelineVariable('at_stimulus_prac'),
             choices: ['g'],
             data: jsPsych.timelineVariable('data'),
             trial_duration: 800,

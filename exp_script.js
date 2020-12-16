@@ -203,8 +203,7 @@ for (var i = 0; i < preload_list.length; i++) {
      console.log(images[i]);
      images[i].src = preload_list[i];
      console.log(images[i].src);
-    }
-};
+    };
 
 
 

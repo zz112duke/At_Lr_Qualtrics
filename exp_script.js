@@ -550,7 +550,7 @@ function save_data_csv() {
 jsPsych.init({
     timeline: timeline,
     display_element: 'display_stage',
-    preload_images: preload_list, //added to prevent flashing
+    //preload_images: preload_list, //added to prevent flashing
     on_finish: function () {
         save_data_csv();
     }

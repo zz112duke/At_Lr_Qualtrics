@@ -547,12 +547,12 @@ function save_data_csv() {
 }
 
 
-//jsPsych.init({
-//    timeline: timeline, //[enter_full, consent, instr_1, at_test_procedure, exit_full]
-//    display_element: 'display_stage',
-//    on_finish: function () {
-//        jsPsych.data.displayData();
-//    }
-//});
-//on_finish: saveData
-
+jsPsych.init({
+    timeline: timeline,
+    display_element: 'display_stage',
+    preload_images: preload_prac, //added to prevent flashing
+    on_finish: function () {
+        save_data_csv();
+    }
+}
+    });

@@ -60,19 +60,28 @@
 
 </body>
 
-<!--<script>//can later move this to the end of exp_script.js
+<script>//can later move this to the end of exp_script.js
 
-    var images = [];
-    function preload() {
-        for (var i = 0; i < arguments.length; i++) {
-            images[i] = new Image();
-            images[i].src = preload.arguments[i];
-        }
-    };
+    //<!--var images = [];
+    //function preload() {
+        //for (var i = 0; i < arguments.length; i++) {
+            //images[i] = new Image();
+            //images[i].src = preload.arguments[i];
+        //}
+    //};
 
     //-- usage --//
-    preload(preload_list);
-</script>-->
+    //preload(preload_list);
+
+    for (var i = 0; i < preload_list.length; i++) {
+     images[i] = new Image();
+     console.log(images[i]);
+     images[i].src = preload_list[i];
+     console.log(images[i].src);
+    }
+};
+
+</script>
 
 <style>
     .footer {

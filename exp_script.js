@@ -59,7 +59,7 @@ timeline.push(instr_1);
 
 var iti_200 = {
   type: "image-keyboard-response",
-  stimulus: repo_site + "img/Stim/fixation_b.png",
+  stimulus: repo_site + "img/Stim/gray_bdot.png",
   choices: jsPsych.NO_KEYS,
   trial_duration: 200,
 }
@@ -186,19 +186,7 @@ for (j = 0; j < repetition_prac.length; j++) {
     prac_stimuli.push(stimuli_prac);
 }
 preload_list.push(repo_site + "img/Stim/fixation_b.png");
-
-//var images = [];
-
-//function preload() {
-//    for (var i = 0; i < arguments.length; i++) {
-//        images[i] = new Image();
-//        console.log(images[i]);
-//        images[i].src = preload.arguments[i];
-//        console.log(images[i].src);
-//    }
-//};
-//-- usage --//
-//preload(preload_list);
+preload_list.push(repo_site + "img/Stim/gray_bdot.png");
 
 
 //for (var i = 0; i < preload_list.length; i++) {

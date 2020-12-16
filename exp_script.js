@@ -185,8 +185,9 @@ for (j = 0; j < repetition_prac.length; j++) {
     stimuli_prac.data.TaskType = 'prac';
     prac_stimuli.push(stimuli_prac);
 }
+preload_list.push(repo_site + "img/Stim/fixation_b.png");
 
-var images = [];
+//var images = [];
 
 //function preload() {
 //    for (var i = 0; i < arguments.length; i++) {
@@ -200,12 +201,12 @@ var images = [];
 //preload(preload_list);
 
 
-for (var i = 0; i < preload_list.length; i++) {
-     images[i] = new Image();
-     console.log(images[i]);
-     images[i].src = preload_list[i];
-     console.log(images[i].src);
-    };
+//for (var i = 0; i < preload_list.length; i++) {
+     //images[i] = new Image();
+     //console.log(images[i]);
+     //images[i].src = preload_list[i];
+     //console.log(images[i].src);
+    //};
 
 
 

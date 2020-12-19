@@ -148,7 +148,7 @@ for (j = 0; j < repetition.length; j++) {
 
     if (stimuli.at_stimulus.charAt(60) == 0) {
         stimuli.data.at_TrialType = 'frequent';
-        stimuli.data.correct_response = 'g'
+        stimuli.data.correct_response = 'h'
     } else {
         stimuli.data.at_TrialType = 'infrequent';
         stimuli.data.correct_response = ''
@@ -173,7 +173,7 @@ for (j = 0; j < repetition_prac.length; j++) {
 
     if (stimuli_prac.at_stimulus_prac.charAt(60) == 0) {
         stimuli_prac.data.at_TrialType = 'frequent';
-        stimuli_prac.data.correct_response = 'g'
+        stimuli_prac.data.correct_response = 'h'
     } else {
         stimuli_prac.data.at_TrialType = 'infrequent';
         stimuli_prac.data.correct_response = ''
@@ -189,21 +189,12 @@ preload_list.push(repo_site + "img/Stim/fixation_b.png");
 preload_list.push(repo_site + "img/Stim/gray_bdot.png");
 
 
-//for (var i = 0; i < preload_list.length; i++) {
-     //images[i] = new Image();
-     //console.log(images[i]);
-     //images[i].src = preload_list[i];
-     //console.log(images[i].src);
-    //};
-
-
-
 var prac = {
     timeline: [
         {
             type: "image-keyboard-response",
             stimulus:jsPsych.timelineVariable('at_stimulus_prac'),
-            choices: ['g'],
+            choices: ['h'],
             data: jsPsych.timelineVariable('data'),
             trial_duration: 800,
             on_finish: function (data) {
@@ -344,38 +335,38 @@ var lr_stimuli_TS1 = [//TS1 based on frequency; high a low l
     { lr_stimulus: repo_site + "img/Stim/TS011.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'x'}},
     { lr_stimulus: repo_site + "img/Stim/TS012.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'x'}},
     { lr_stimulus: repo_site + "img/Stim/TS013.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'x'}},
-    { lr_stimulus: repo_site + "img/Stim/TS020.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'm'}},
-    { lr_stimulus: repo_site + "img/Stim/TS021.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'm'}},
-    { lr_stimulus: repo_site + "img/Stim/TS022.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'm'}},
-    { lr_stimulus: repo_site + "img/Stim/TS023.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'm'}},
-    { lr_stimulus: repo_site + "img/Stim/TS030.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'm'}},
-    { lr_stimulus: repo_site + "img/Stim/TS031.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'm'}},
-    { lr_stimulus: repo_site + "img/Stim/TS032.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'm'}},
-    { lr_stimulus: repo_site + "img/Stim/TS033.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'm'}},
+    { lr_stimulus: repo_site + "img/Stim/TS020.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'c'}},
+    { lr_stimulus: repo_site + "img/Stim/TS021.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'c'}},
+    { lr_stimulus: repo_site + "img/Stim/TS022.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'c'}},
+    { lr_stimulus: repo_site + "img/Stim/TS023.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'c'}},
+    { lr_stimulus: repo_site + "img/Stim/TS030.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'c'}},
+    { lr_stimulus: repo_site + "img/Stim/TS031.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'c'}},
+    { lr_stimulus: repo_site + "img/Stim/TS032.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'c'}},
+    { lr_stimulus: repo_site + "img/Stim/TS033.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'c'}},
 ];
 var lr_stimuli_TS2 = [//TS2 based on orientation; right a left l
     { lr_stimulus: repo_site + "img/Stim/TS100.png", data: { test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'x'}},
     { lr_stimulus: repo_site + "img/Stim/TS101.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'x'}},
-    { lr_stimulus: repo_site + "img/Stim/TS102.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'm'}},
-    { lr_stimulus: repo_site + "img/Stim/TS103.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'm'}},
+    { lr_stimulus: repo_site + "img/Stim/TS102.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'c'}},
+    { lr_stimulus: repo_site + "img/Stim/TS103.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'c'}},
     { lr_stimulus: repo_site + "img/Stim/TS110.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'x'}},
     { lr_stimulus: repo_site + "img/Stim/TS111.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'x'}},
-    { lr_stimulus: repo_site + "img/Stim/TS112.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'm'}},
-    { lr_stimulus: repo_site + "img/Stim/TS113.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'm'}},
+    { lr_stimulus: repo_site + "img/Stim/TS112.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'c'}},
+    { lr_stimulus: repo_site + "img/Stim/TS113.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'c'}},
     { lr_stimulus: repo_site + "img/Stim/TS120.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'x'}},
     { lr_stimulus: repo_site + "img/Stim/TS121.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'x'}},
-    { lr_stimulus: repo_site + "img/Stim/TS122.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'm'}},
-    { lr_stimulus: repo_site + "img/Stim/TS123.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'm'}},
+    { lr_stimulus: repo_site + "img/Stim/TS122.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'c'}},
+    { lr_stimulus: repo_site + "img/Stim/TS123.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'c'}},
     { lr_stimulus: repo_site + "img/Stim/TS130.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'x'}},
     { lr_stimulus: repo_site + "img/Stim/TS131.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'x'}},
-    { lr_stimulus: repo_site + "img/Stim/TS132.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'm'}},
-    { lr_stimulus: repo_site + "img/Stim/TS133.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'm'}},
+    { lr_stimulus: repo_site + "img/Stim/TS132.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'c'}},
+    { lr_stimulus: repo_site + "img/Stim/TS133.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'c'}},
 ];
 
 var learning = {
   type: "image-keyboard-response",
   stimulus: jsPsych.timelineVariable('lr_stimulus'),
-  choices: ['x', 'm'],
+  choices: ['x', 'c'],
   data: jsPsych.timelineVariable('data'),
   on_finish: function(data){
     data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
@@ -426,7 +417,7 @@ var attention = {
   timeline:[
   {type: "image-keyboard-response",
   stimulus: jsPsych.timelineVariable('at_stimulus'),
-  choices: ['g'],
+  choices: ['h'],
   data: jsPsych.timelineVariable('data'),
   trial_duration: 800,
   on_finish: function(data){

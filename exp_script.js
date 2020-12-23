@@ -433,7 +433,7 @@ var attention = {
     data.lr_counter = lr_counter
     data.at_RunningMean = rt_mean
     data.sd = rt_sd
-    data.slow = rt_mean+0.8rt_sd
+    data.slow = rt_mean+0.8*rt_sd
     data.fast = Math.abs(rt_mean-0.8*rt_sd)
 
 

@@ -471,7 +471,7 @@ var attention = {
       lr_node = 0
     }  else {   
 
-      if(rt_three >= rt_mean+0.8rt_sd){
+      if(rt_three >= rt_mean+0.8*rt_sd){
             lr_node = true;
             data.diff = 'slow'
           } else if (rt_three < Math.abs(rt_mean-0.8*rt_sd)){

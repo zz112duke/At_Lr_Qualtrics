@@ -467,7 +467,7 @@ var attention = {
   };
 
 //last_3acc.includes(false) == true|| last_3rt.includes(true) == true|| last_3freq.includes('infrequent') == true
-    if (at_counter < 80 || last_infreq.includes('infrequent') || last_correct.includes(false)|| last_rt.includes(true) || last_lr.includes('lr'){
+    if (at_counter < 80 || last_infreq.includes('infrequent') || last_correct.includes(false)|| last_rt.includes(true) || last_lr.includes('lr')){
       lr_node = 0
     }  else {   
 

@@ -453,22 +453,23 @@ var attention = {
         for (var i = 0; i<3; i++){
          if (last_rt[i] <100) {
            last_rt[i] = true
-         }
-      };
+            }
+        };
         // if (last_rt.includes(true)) {
-        //   console.log('too fast')};
+        // console.log('too fast')};
+
+        var last_lr = jsPsych.data.get().filter({ test_part: 'test' }).last(3).select('TaskType').values;
 
         //calculate trailing RT after the third trial
         var rt_three = jsPsych.data.get().filter({at_TrialType: 'frequent'}).last(3).select('rt').mean();
         data.at_TrailingMean = rt_three
 
-
   };
 
 //last_3acc.includes(false) == true|| last_3rt.includes(true) == true|| last_3freq.includes('infrequent') == true
-    if (at_counter < 80 || last_infreq.includes('infrequent') || last_correct.includes(false)|| last_rt.includes(true)){
+    if (at_counter < 80 || last_infreq.includes('infrequent') || last_correct.includes(false)|| last_rt.includes(true) || last_lr.includes('lr'){
       lr_node = 0
-    }  else {
+    }  else {   
 
       if(rt_three >= rt_mean+0.8rt_sd){
             lr_node = true;

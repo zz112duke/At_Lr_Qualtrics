@@ -461,7 +461,8 @@ var attention = {
         //console.log('there is an infrq')}
 
         //see if there was an error in the last 3 trials
-        var last_correct = jsPsych.data.get().filter({TaskType: 'at'}).last(3).select('correct').values;
+        var last_correct = jsPsych.data.get().filter({ TaskType: 'at' }).last(3).select('correct').values;
+        console.log(last_correct)
         if (last_correct.includes(false) == true){
         console.log('there is an error')}
 
@@ -476,7 +477,7 @@ var attention = {
         // console.log('too fast')};
 
         var last_lr = jsPsych.data.get().filter({ test_part: 'test' }).last(3).select('TaskType').values;
-        console.log(last_lr)
+        //console.log(last_lr)
 
         //calculate trailing RT after the third trial
         var rt_three = jsPsych.data.get().filter({at_TrialType: 'frequent'}).last(3).select('rt').mean();

@@ -424,12 +424,13 @@ var attention = {
 
     var at_counter = jsPsych.data.get().filter({TaskType: 'at'}).select('rt').values.length
     var lr_counter = jsPsych.data.get().filter({TaskType: 'lr'}).select('rt').values.length //CHECK!!!
-    console.log('starts here')
+    //console.log('starts here')
 
     data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
     var rt_mean = jsPsych.data.get().filter({at_TrialType: 'frequent', key_press: 71}).select('rt').mean();
     var rt_sd = jsPsych.data.get().filter({at_TrialType: 'frequent', key_press: 71}).select('rt').sd();
     data.at_counter = at_counter
+    console.log(at_counter)
     data.lr_counter = lr_counter
     data.at_RunningMean = rt_mean
     data.sd = rt_sd
@@ -459,7 +460,7 @@ var attention = {
         // console.log('too fast')};
 
         var last_lr = jsPsych.data.get().filter({ test_part: 'test' }).last(3).select('TaskType').values;
-        console.log(last_rt)
+        console.log(last_lr)
 
         //calculate trailing RT after the third trial
         var rt_three = jsPsych.data.get().filter({at_TrialType: 'frequent'}).last(3).select('rt').mean();

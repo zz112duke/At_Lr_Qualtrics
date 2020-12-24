@@ -459,6 +459,7 @@ var attention = {
         // console.log('too fast')};
 
         var last_lr = jsPsych.data.get().filter({ test_part: 'test' }).last(3).select('TaskType').values;
+        console.log(last_rt)
 
         //calculate trailing RT after the third trial
         var rt_three = jsPsych.data.get().filter({at_TrialType: 'frequent'}).last(3).select('rt').mean();
@@ -466,8 +467,8 @@ var attention = {
 
   };
 
-//last_3acc.includes(false) == true|| last_3rt.includes(true) == true|| last_3freq.includes('infrequent') == true
-    if (at_counter < 80 || last_infreq.includes('infrequent') || last_correct.includes(false)|| last_rt.includes(true) || last_lr.includes('lr')){
+
+      if (at_counter < 80 || last_infreq.includes('infrequent') || last_correct.includes(false) || last_rt.includes(true) || last_lr.includes('lr')) {
       lr_node = 0
     }  else {   
 

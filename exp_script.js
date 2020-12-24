@@ -57,7 +57,7 @@ var page_1_options = ["G", "F", "H", "C", "X"];
 var page_2_options = ["C and X", "C and H", "X and H", "F and G"];
 
 var multi_choice_block = {
-    type: 'survey-multi-choice',
+    type: 'jspsych-survey-multi-choice',
     questions: [
         { prompt: "What was the key response for shapes with gray background?", name: 'P_Inclusion_1', options: page_1_options, required: true },
         { prompt: "What were the two possible key responses for shapes with green or blue background?", name: 'P_Inclusion_2', options: page_2_options, required: false }

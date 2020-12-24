@@ -462,8 +462,8 @@ var attention = {
 
         //see if there was an error in the last 3 trials
         var last_correct = jsPsych.data.get().filter({TaskType: 'at'}).last(3).select('correct').values;
-        //if (last_correct.includes(false) == true){
-        //console.log('there is an error')}
+        if (last_correct.includes(false) == true){
+        console.log('there is an error')}
 
         var last_rt = jsPsych.data.get().filter({at_TrialType: 'frequent'}).last(3).select('rt').values;
         //console.log(last_rt);

@@ -23,6 +23,8 @@ function setCharAt(str, index, chr) {
 }
 
 var timeline = [];
+
+
 var enter_full = {
   type: 'fullscreen',
   fullscreen_mode: true
@@ -49,6 +51,20 @@ var consent = {
   cont_btn: 'start',
 };
 timeline.push(consent);
+
+
+var page_1_options = ["G", "F", "H", "C", "X"];
+var page_2_options = ["C and X", "C and H", "X and H", "F and G"];
+
+var multi_choice_block = {
+    type: 'survey-multi-choice',
+    questions: [
+        { prompt: "What was the key response for shapes with gray background?", name: 'P_Inclusion_1', options: page_1_options, required: true },
+        { prompt: "What were the two possible key responses for shapes with green or blue background?", name: 'P_Inclusion_2', options: page_2_options, required: false }
+    ],
+};
+timeline.push(multi_choice_block);
+
 
 var instr_1 = {
   type: 'external-html',

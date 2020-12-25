@@ -450,15 +450,15 @@ var attention = {
     data.lr_counter = lr_counter
     data.at_RunningMean = rt_mean
     data.sd = rt_sd
-    data.slow = rt_mean+0.8*rt_sd
-    data.fast = Math.abs(rt_mean-0.8*rt_sd)
+    data.slow = rt_mean+0.7*rt_sd
+    data.fast = Math.abs(rt_mean-0.7*rt_sd)
 
 
     if (at_counter > 3) {
         //see if the last trial was an infrequent trial
         var last_infreq = jsPsych.data.get().filter({TaskType: 'at'}).last(3).select('at_TrialType').values;
-        //if (last_infreq.includes('infrequent') == true) {
-        //console.log('there is an infrq')}
+        if (last_infreq.includes('infrequent') == true) {
+        console.log('there is an infreq')}
 
         //see if there was an error in the last 3 trials
         var last_correct = jsPsych.data.get().filter({ TaskType: 'at' }).last(3).select('correct').values;
@@ -473,11 +473,11 @@ var attention = {
            last_rt[i] = true
             }
         };
-        // if (last_rt.includes(true)) {
-        // console.log('too fast')};
+        if (last_rt.includes(true)) {
+         console.log('too fast')};
 
         var last_lr = jsPsych.data.get().filter({ test_part: 'test' }).last(3).select('TaskType').values;
-        //console.log(last_lr)
+        console.log(last_lr)
 
         //calculate trailing RT after the third trial
         var rt_three = jsPsych.data.get().filter({at_TrialType: 'frequent'}).last(3).select('rt').mean();
@@ -485,15 +485,20 @@ var attention = {
 
   };
 
-      //|| last_lr.includes('lr')
-      if (at_counter < 80 || last_infreq.includes('infrequent') || last_correct.includes(false) || last_rt.includes(true)) {
+     
+
+
+
+
+
+      if (at_counter < 10 || last_infreq.includes('infrequent') || last_correct.includes(false) || last_rt.includes(true) || last_lr.includes('lr')) {
       lr_node = 0
     }  else {   
 
-      if(rt_three >= rt_mean+0.8*rt_sd){
+      if(rt_three >= rt_mean+0.7*rt_sd){
             lr_node = true;
             data.diff = 'slow'
-          } else if (rt_three < Math.abs(rt_mean-0.8*rt_sd)){
+          } else if (rt_three < Math.abs(rt_mean-0.7*rt_sd)){
                 lr_node = false;
                 data.diff = 'fast'
             }

@@ -53,17 +53,17 @@ var consent = {
 timeline.push(consent);
 
 
-//var page_1_options = ["G", "F", "H", "C", "X"];
-//var page_2_options = ["C and X", "C and H", "X and H", "F and G"];
+var page_1_options = ["G", "F", "H", "C", "X"];
+var page_2_options = ["C and X", "C and H", "X and H", "F and G"];
 
-//var multi_choice_block = {
-//    type: 'survey-multi-choice',
-//    questions: [
-//        { prompt: "What was the key response for shapes with gray background?", name: 'P_Inclusion_1', options: page_1_options, required: true },
-//        { prompt: "What were the two possible key responses for shapes with green or blue background?", name: 'P_Inclusion_2', options: page_2_options, required: false }
-//    ],
-//};
-//timeline.push(multi_choice_block);
+var multi_choice_block = {
+    type: 'survey-multi-choice',
+    questions: [
+        { prompt: "What was the key response for shapes with gray background?", name: 'P_Inclusion_1', options: page_1_options, required: true },
+        { prompt: "What were the two possible key responses for shapes with green or blue background?", name: 'P_Inclusion_2', options: page_2_options, required: false }
+    ],
+};
+timeline.push(multi_choice_block);
 
 
 var instr_1 = {
@@ -443,15 +443,15 @@ var attention = {
     //console.log('starts here')
 
     data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
-    var rt_mean = jsPsych.data.get().filter({at_TrialType: 'frequent', key_press: 72}).select('rt').mean();
+    var rt_mean = jsPsych.data.get().filter({ at_TrialType: 'frequent', key_press: 72 }).select('rt').mean(); //if you change response key, don't forget to search for key code
     var rt_sd = jsPsych.data.get().filter({at_TrialType: 'frequent', key_press: 72}).select('rt').sd();
     data.at_counter = at_counter
     console.log(at_counter)
     data.lr_counter = lr_counter
     data.at_RunningMean = rt_mean
     data.sd = rt_sd
-    data.slow = rt_mean+0.7*rt_sd
-    data.fast = Math.abs(rt_mean-0.7*rt_sd)
+    data.slow = rt_mean+0.75*rt_sd
+    data.fast = Math.abs(rt_mean-0.75*rt_sd)
 
 
     if (at_counter > 3) {
@@ -496,10 +496,10 @@ var attention = {
     }
     else {   
 
-      if(rt_three >= rt_mean+0.7*rt_sd){
+      if(rt_three >= rt_mean+0.75*rt_sd){
             lr_node = true;
             data.diff = 'slow'
-          } else if (rt_three < Math.abs(rt_mean-0.7*rt_sd)){
+          } else if (rt_three < Math.abs(rt_mean-0.75*rt_sd)){
                 lr_node = false;
                 data.diff = 'fast'
             }

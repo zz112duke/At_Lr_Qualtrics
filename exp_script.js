@@ -450,8 +450,8 @@ var attention = {
     data.lr_counter = lr_counter
     data.at_RunningMean = rt_mean
     data.sd = rt_sd
-    data.slow = rt_mean+0.7*rt_sd
-    data.fast = Math.abs(rt_mean-0.7*rt_sd)
+    data.slow = rt_mean+0.1*rt_sd
+    data.fast = Math.abs(rt_mean-0.1*rt_sd)
 
 
     if (at_counter > 3) {
@@ -491,14 +491,15 @@ var attention = {
 
 
 
-      if (at_counter < 10 || last_infreq.includes('infrequent') || last_correct.includes(false) || last_rt.includes(true) || last_lr.includes('lr')) {
-      lr_node = 0
-    }  else {   
+    if (at_counter < 10 || last_infreq.includes('infrequent') || last_correct.includes(false) || last_rt.includes(true) || last_lr.includes('lr')) {
+        lr_node = 0
+    }
+    else {   
 
-      if(rt_three >= rt_mean+0.7*rt_sd){
+      if(rt_three >= rt_mean+0.1*rt_sd){
             lr_node = true;
             data.diff = 'slow'
-          } else if (rt_three < Math.abs(rt_mean-0.7*rt_sd)){
+          } else if (rt_three < Math.abs(rt_mean-0.1*rt_sd)){
                 lr_node = false;
                 data.diff = 'fast'
             }

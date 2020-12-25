@@ -65,14 +65,12 @@ timeline.push(consent);
 //};
 //timeline.push(multi_choice_block);
 
-var survey_trial = {
-    type: 'survey-text',
-    questions: [
-        { prompt: "How old are you?" },
-        { prompt: "Where were you born?", placeholder: "City, State/Province, Country" }
-    ],
+var form_trial = {
+    type: 'survey-html-form',
+    preamble: '<p> How are you feeling <b>right now?</b> </p>',
+    html: '<p> I am feeling <input name="first" type="text" />, <input name="second" type="text" />, and <input name="third" type="text" />.</p>'
 };
-timeline.push(survey_trial);
+timeline.push(form_trial);
 
 var instr_1 = {
   type: 'external-html',

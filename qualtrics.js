@@ -19,6 +19,7 @@
         task_github + "js/jspsych-6.1.0/plugins/jspsych-external-html.js",
         task_github + "js/jspsych-6.1.0/plugins/jspsych-fullscreen.js",
         task_github + "js/jspsych-6.1.0/plugins/jspsych-survey-multi-choice.js",
+        task_github + "js/jspsych-6.1.0/plugins/jspsych-survey-text.js",
         task_github + "exp_script.js",
     ];
 

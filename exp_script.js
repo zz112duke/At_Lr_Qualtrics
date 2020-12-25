@@ -53,18 +53,26 @@ var consent = {
 timeline.push(consent);
 
 
-var page_1_options = ["G", "F", "H", "C", "X"];
-var page_2_options = ["C and X", "C and H", "X and H", "F and G"];
+//var page_1_options = ["G", "F", "H", "C", "X"];
+//var page_2_options = ["C and X", "C and H", "X and H", "F and G"];
 
-var multi_choice_block = {
-    type: 'survey-multi-choice',
+//var multi_choice_block = {
+//    type: 'survey-multi-choice',
+//    questions: [
+//        { prompt: "What was the key response for shapes with gray background?", name: 'P_Inclusion_1', options: page_1_options, required: true },
+//        { prompt: "What were the two possible key responses for shapes with green or blue background?", name: 'P_Inclusion_2', options: page_2_options, required: false }
+//    ],
+//};
+//timeline.push(multi_choice_block);
+
+var survey_trial = {
+    type: 'survey-text',
     questions: [
-        { prompt: "What was the key response for shapes with gray background?", name: 'P_Inclusion_1', options: page_1_options, required: true },
-        { prompt: "What were the two possible key responses for shapes with green or blue background?", name: 'P_Inclusion_2', options: page_2_options, required: false }
+        { prompt: "How old are you?" },
+        { prompt: "Where were you born?", placeholder: "City, State/Province, Country" }
     ],
 };
-timeline.push(multi_choice_block);
-
+timeline.push(survey_trial);
 
 var instr_1 = {
   type: 'external-html',

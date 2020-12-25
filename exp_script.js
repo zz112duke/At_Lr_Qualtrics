@@ -53,22 +53,22 @@ var consent = {
 timeline.push(consent);
 
 
-//var page_1_options = ["G", "F", "H", "C", "X"];
-//var page_2_options = ["C and X", "C and H", "X and H", "F and G"];
+var page_1_options = ["G", "F", "H", "C", "X"];
+var page_2_options = ["C and X", "C and H", "X and H", "F and G"];
 
-//var multi_choice_block = {
-//    type: 'survey-multi-choice',
-//    questions: [
-//        { prompt: "What was the key response for shapes with gray background?", name: 'P_Inclusion_1', options: page_1_options, required: true },
-//        { prompt: "What were the two possible key responses for shapes with green or blue background?", name: 'P_Inclusion_2', options: page_2_options, required: false }
-//    ],
-//};
-//timeline.push(multi_choice_block);
+var multi_choice_block = {
+    type: 'survey-multi-choice',
+    questions: [
+        { prompt: "What was the key response for shapes with gray background?", name: 'P_Inclusion_1', options: page_1_options, required: true },
+        { prompt: "What were the two possible key responses for shapes with green or blue background?", name: 'P_Inclusion_2', options: page_2_options, required: false }
+    ],
+};
+timeline.push(multi_choice_block);
 
 var form_trial = {
     type: 'survey-html-form',
-    preamble: '<p> How are you feeling <b>right now?</b> </p>',
-    html: '<p> I am feeling <input name="first" type="text" />, <input name="second" type="text" />, and <input name="third" type="text" />.</p>'
+    preamble: '<p> What was the key response for shapes with <b> gray background </b>?</p>',
+    html: '<p> The correct key is <input name="first" type="text" />. </p>'
 };
 timeline.push(form_trial);
 

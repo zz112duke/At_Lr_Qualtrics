@@ -443,15 +443,15 @@ var attention = {
     //console.log('starts here')
 
     data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
-    var rt_mean = jsPsych.data.get().filter({at_TrialType: 'frequent', key_press: 71}).select('rt').mean();
-    var rt_sd = jsPsych.data.get().filter({at_TrialType: 'frequent', key_press: 71}).select('rt').sd();
+    var rt_mean = jsPsych.data.get().filter({at_TrialType: 'frequent', key_press: 72}).select('rt').mean();
+    var rt_sd = jsPsych.data.get().filter({at_TrialType: 'frequent', key_press: 72}).select('rt').sd();
     data.at_counter = at_counter
     console.log(at_counter)
     data.lr_counter = lr_counter
     data.at_RunningMean = rt_mean
     data.sd = rt_sd
-    data.slow = rt_mean+0.1*rt_sd
-    data.fast = Math.abs(rt_mean-0.1*rt_sd)
+    data.slow = rt_mean+0.7*rt_sd
+    data.fast = Math.abs(rt_mean-0.7*rt_sd)
 
 
     if (at_counter > 3) {
@@ -496,10 +496,10 @@ var attention = {
     }
     else {   
 
-      if(rt_three >= rt_mean+0.1*rt_sd){
+      if(rt_three >= rt_mean+0.7*rt_sd){
             lr_node = true;
             data.diff = 'slow'
-          } else if (rt_three < Math.abs(rt_mean-0.1*rt_sd)){
+          } else if (rt_three < Math.abs(rt_mean-0.7*rt_sd)){
                 lr_node = false;
                 data.diff = 'fast'
             }

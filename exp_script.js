@@ -413,7 +413,7 @@ var lr_stimuli_TS2 = [//TS2 based on orientation; right a left l
     { lr_stimulus: repo_site + "img/Stim/TS132.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'c'}},
     { lr_stimulus: repo_site + "img/Stim/TS133.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'c'}},
 ];
-preload_list.push.apply(preload_list, stim_names_freq, stim_names_infreq);
+//preload_list.push.apply(preload_list, stim_names_freq, stim_names_infreq);
 
 var learning = {
   type: "image-keyboard-response",

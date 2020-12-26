@@ -59,16 +59,18 @@ var payment_inc = {
     type: 'survey-html-form',
     preamble: '<p> You have finished the game! Please answer a few questions regarding the rules of the game. </p>',
     html: '<p> The correct response key for shapes with <b> gray background </b> is <input name="first" type="text" />. <br> The correct response keys for shapes with <b> blue </b> or <b> green </b> background are <input name = "second" type = "text" /> and <input name="third" type="text" />. </p> ',
-    autofocus: 'test-resp-box'
+    autofocus: 'test-resp-box',
+    required: true
 };
 timeline.push(payment_inc);
 
 /* A Few Q on Rules */
-var rules_Q = {
+var rules_Q = 
     type: 'survey-html-form',
     preamble: '<p> Please answer a few questions regarding the rules of the game. </p>',
     html: '<p> What do you think the colored background indicates? <input name="first" type="text" />. <br> What do you think is the relationship between the stripes and your response? <input name = "second" type = "text" /> </p> ',
-    autofocus: 'test-resp-box'
+    autofocus: 'test-resp-box',
+    required: true
 };
 timeline.push(rules_Q);
 
@@ -89,12 +91,12 @@ var multi_choice_block = {
     button_label: 'Next',
     preamble: 'Please answer some further questions on demographics.',
     questions: [
-        { prompt: "Have you discovered the rules in the trials with colored background?", name: 'Q1', options: Q1_options, required: true },
-        { prompt: "What is your gender?", name: 'DemoQ1', options: DemoQ1_options, required: true },
-        { prompt: "What is your age?", name: 'DemoQ2', options: DemoQ2_options, required: true },
-        { prompt: "Are you of Hispanic, Latino, or Spanish origin?", name: 'DemoQ3', options: DemoQ3_options, required: true },
-        { prompt: "How would you describe yourself? Please select all that apply.", name: 'DemoQ4', options: DemoQ4_options, required: true },
-        { prompt: "What is the highest degree or level of school you have completed?", name: 'DemoQ5', options: DemoQ5_options, required: true },
+        { prompt: "Have you discovered the rules in the trials with colored background?", name: 'Q1', options: Q1_options, required: true, horizontal:false },
+        //{ prompt: "What is your gender?", name: 'DemoQ1', options: DemoQ1_options, required: true },
+        //{ prompt: "What is your age?", name: 'DemoQ2', options: DemoQ2_options, required: true },
+        //{ prompt: "Are you of Hispanic, Latino, or Spanish origin?", name: 'DemoQ3', options: DemoQ3_options, required: true },
+        //{ prompt: "How would you describe yourself? Please select all that apply.", name: 'DemoQ4', options: DemoQ4_options, required: true },
+        //{ prompt: "What is the highest degree or level of school you have completed?", name: 'DemoQ5', options: DemoQ5_options, required: true },
     ],
 };
 timeline.push(multi_choice_block);

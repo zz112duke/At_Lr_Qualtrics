@@ -67,8 +67,8 @@ timeline.push(consent);
 
 var form_trial = {
     type: 'survey-html-form',
-    preamble: '<p> What was the key response for shapes with <b> gray background </b>?</p>',
-    html: '<p> The correct key is <input name="first" type="text" />. </p>',
+    preamble: '<p> Please answer a few questions regarding the rule of the game. </p>',
+    html: '<p> The correct response key for shapes with <b> gray background </b> is <input name="first" type="text" />. <br> The correct response key for shapes with<b> blue or green background </b> is < input name = "second" type = "text" /> and <input name="third" type="text" />. </p> ',
     autofocus: 'test-resp-box'
 };
 timeline.push(form_trial);

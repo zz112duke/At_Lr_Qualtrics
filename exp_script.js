@@ -545,7 +545,7 @@ timeline.push(at_test_procedure);
 var payment_inc = {
     type: 'survey-html-form',
     preamble: '<p> Please answer a few questions regarding the rule of the game. </p>',
-    html: '<p> The correct response key for shapes with <b> gray background </b> is <input name="first" type="text" />. <br> The correct response keys for shapes with<b> blue or green background </b> are <input name = "second" type = "text" /> and <input name="third" type="text" />. </p> ',
+    html: '<p> The correct response key for shapes with <b> gray background </b> is <input name="first" type="text" />. <br> The correct response keys for shapes with <b> blue </b> or <b> green </b> background are <input name = "second" type = "text" /> and <input name="third" type="text" />. </p> ',
     autofocus: 'test-resp-box'
 };
 timeline.push(payment_inc);

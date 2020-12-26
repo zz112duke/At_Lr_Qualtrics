@@ -86,6 +86,8 @@ var DemoQ5_options = ["Less than a high school diploma", "High school degree or 
 
 var multi_choice_block = {
     type: 'survey-multi-choice',
+    button_label: 'Next',
+    preamble: 'Please answer some further questions on demographics.',
     questions: [
         { prompt: "Have you discovered the rules in the trials with colored background?", name: 'Q1', options: Q1_options, required: true },
         { prompt: "What is your gender?", name: 'DemoQ1', options: DemoQ1_options, required: true },

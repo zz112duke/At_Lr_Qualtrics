@@ -53,6 +53,53 @@ var consent = {
 timeline.push(consent);
 
 
+
+/* Payment Inclusion */
+var payment_inc = {
+    type: 'survey-html-form',
+    preamble: '<p> You have finished the game! Please answer a few questions regarding the rules of the game. </p>',
+    html: '<p> The correct response key for shapes with <b> gray background </b> is <input name="first" type="text" />. <br> The correct response keys for shapes with <b> blue </b> or <b> green </b> background are <input name = "second" type = "text" /> and <input name="third" type="text" />. </p> ',
+    autofocus: 'test-resp-box'
+};
+timeline.push(payment_inc);
+
+/* A Few Q on Rules */
+var rules_Q = {
+    type: 'survey-html-form',
+    preamble: '<p> Please answer a few questions regarding the rules of the game. </p>',
+    html: '<p> What do you think the colored background indicates? <input name="first" type="text" />. <br> What do you think is the relationship between the stripes and your response? <input name = "second" type = "text" /> </p> ',
+    autofocus: 'test-resp-box'
+};
+timeline.push(rules_Q);
+
+
+
+
+/* Demographics */
+
+var Q1_options = ["Yes", "No"];
+var DemoQ1_options = ["Male", "Female", "Other"];
+var DemoQ2_options = ["Under 18", "18-24", "25-34", "35-44", "45-54", "55-64", "65-74", "75-84", "85 or older"];
+var DemoQ3_options = ["Yes", "No"];
+var DemoQ4_options = ["White", "Black or African American", "Asian", "Native Hawaiian or Pacific Islander", "Other"];
+var DemoQ5_options = ["Less than a high school diploma", "High school degree or equivalent (e.g. GED)", "Some college, no degree", "Associate degree (e.g. AA, AS)", "College degree", "Master's degree (e.g. MA, MS, MEd)", "Doctorate or professional degree (e.g. MD, DDS, PhD)"];
+
+var multi_choice_block = {
+    type: 'survey-multi-choice',
+    questions: [
+        { prompt: "Have you discovered the rules in the trials with colored background?", name: 'Q1', options: Q1_options, required: true },
+        { prompt: "What is your gender?", name: 'DemoQ1', options: DemoQ1_options, required: true },
+        { prompt: "What is your age?", name: 'DemoQ2', options: DemoQ2_options, required: true },
+        { prompt: "Are you of Hispanic, Latino, or Spanish origin?", name: 'DemoQ3', options: DemoQ3_options, required: true },
+        { prompt: "How would you describe yourself? Please select all that apply.", name: 'DemoQ4', options: DemoQ4_options, required: true },
+        { prompt: "What is the highest degree or level of school you have completed?", name: 'DemoQ5', options: DemoQ5_options, required: true },
+    ],
+};
+timeline.push(multi_choice_block);
+
+
+
+
 var instr_1 = {
   type: 'external-html',
   url: repo_site + "content/instr_1.html",
@@ -190,6 +237,7 @@ for (j = 0; j < repetition_prac.length; j++) {
 }
 preload_list.push(repo_site + "img/Stim/fixation_b.png");
 preload_list.push(repo_site + "img/Stim/gray_bdot.png");
+preload_list.push.apply(preload_list,stim_names_freq,stim_names_infreq);
 
 
 var prac = {
@@ -541,48 +589,7 @@ var at_test_procedure = {
 timeline.push(at_test_procedure);
 
 
-/* Payment Inclusion */
-var payment_inc = {
-    type: 'survey-html-form',
-    preamble: '<p> Please answer a few questions regarding the rule of the game. </p>',
-    html: '<p> The correct response key for shapes with <b> gray background </b> is <input name="first" type="text" />. <br> The correct response keys for shapes with <b> blue </b> or <b> green </b> background are <input name = "second" type = "text" /> and <input name="third" type="text" />. </p> ',
-    autofocus: 'test-resp-box'
-};
-timeline.push(payment_inc);
 
-/* A Few Q on Rules */
-var rules_Q = {
-    type: 'survey-html-form',
-    preamble: '<p> Please answer a few questions regarding the rule of the game. </p>',
-    html: '<p> What do you think the colored background indicates? <input name="first" type="text" />. <br> What do you think is the relationship between the stripes and your response? <input name = "second" type = "text" /> </p> ',
-    autofocus: 'test-resp-box'
-};
-timeline.push(rules_Q);
-
-
-
-
-/* Demographics */
-
-var Q1_options = ["Yes","No"];
-var DemoQ1_options = ["Male", "Female", "Other"];
-var DemoQ2_options = ["Under 18", "18-24", "25-34","35-44","45-54","55-64","65-74","75-84","85 or older"];
-var DemoQ3_options = ["Yes", "No"];
-var DemoQ4_options = ["White", "Black or African American", "Asian", "Native Hawaiian or Pacific Islander", "Other"];
-var DemoQ5_options = ["Less than a high school diploma", "High school degree or equivalent (e.g. GED)", "Some college, no degree", "Associate degree (e.g. AA, AS)", "Associate degree (e.g. AA, AS)", "Master's degree (e.g. MA, MS, MEd)","Doctorate or professional degree (e.g. MD, DDS, PhD)"];
-
-var multi_choice_block = {
-    type: 'survey-multi-choice',
-    questions: [
-        { prompt: "Have you discovered the rules in the trials with colored background?", name: 'Q1', options: Q1_options, required: true },
-        { prompt: "What is your gender?", name: 'DemoQ1', options: DemoQ1_options, required: true },
-        { prompt: "What is your age?", name: 'DemoQ2', options: DemoQ2_options, required: true },
-        { prompt: "Are you of Hispanic, Latino, or Spanish origin?", name: 'DemoQ3', options: DemoQ3_options, required: true },
-        { prompt: "How would you describe yourself? Please select all that apply.", name: 'DemoQ4', options: DemoQ4_options, required: true },
-        { prompt: "What is the highest degree or level of school you have completed?", name: 'DemoQ5', options: DemoQ5_options, required: true },
-    ],
-};
-timeline.push(multi_choice_block);
 
 
 function save_data_csv() {

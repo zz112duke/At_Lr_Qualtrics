@@ -65,7 +65,7 @@ var payment_inc = {
 timeline.push(payment_inc);
 
 /* A Few Q on Rules */
-var rules_Q = 
+var rules_Q = {
     type: 'survey-html-form',
     preamble: '<p> Please answer a few questions regarding the rules of the game. </p>',
     html: '<p> What do you think the colored background indicates? <input name="first" type="text" />. <br> What do you think is the relationship between the stripes and your response? <input name = "second" type = "text" /> </p> ',

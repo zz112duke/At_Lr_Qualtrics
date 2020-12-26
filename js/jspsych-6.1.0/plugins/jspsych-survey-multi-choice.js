@@ -149,7 +149,8 @@ jsPsych.plugins['survey-multi-choice'] = (function() {
     }
 
     // add submit button
-    html += '<input type="submit" id="'+plugin_id_name+'-next" class="'+plugin_id_name+' jspsych-btn"' + (trial.button_label ? ' value="'+trial.button_label + '"': '') + '></input>';
+    //html += '<input type="submit" id="'+plugin_id_name+'-next" class="'+plugin_id_name+' jspsych-btn"' + (trial.button_label ? ' value="'+trial.button_label + '"': '') + '></input>';
+    html += '<input type="submit" id="'+plugin_id_name+'-next" class="jspsych-btn '+plugin_id_name+' " value="'+trial.button_label + '"></input>';
     html += '</form>';
 
     // render

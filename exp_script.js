@@ -121,7 +121,7 @@ var multi_choice = {
             name: jsPsych.timelineVariable('name'),
             required: jsPsych.timelineVariable('required'),
         }
-    ];
+    ]
  };
 
 var multi = {

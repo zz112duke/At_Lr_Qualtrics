@@ -62,7 +62,7 @@ var payment_inc = {
     autofocus: 'test-resp-box',
     required: true
 };
-timeline.push(payment_inc);
+//timeline.push(payment_inc);
 
 /* A Few Q on Rules */
 var rules_Q = {
@@ -72,7 +72,7 @@ var rules_Q = {
     autofocus: 'test-resp-box',
     required: true
 };
-timeline.push(rules_Q);
+//timeline.push(rules_Q);
 
 
 
@@ -86,22 +86,50 @@ var DemoQ3_options = ["Yes", "No"];
 var DemoQ4_options = ["White", "Black or African American", "Asian", "Native Hawaiian or Pacific Islander", "Other"];
 var DemoQ5_options = ["Less than a high school diploma", "High school degree or equivalent (e.g. GED)", "Some college, no degree", "Associate degree (e.g. AA, AS)", "College degree", "Master's degree (e.g. MA, MS, MEd)", "Doctorate or professional degree (e.g. MD, DDS, PhD)"];
 
-var multi_choice_block = {
-    type: 'survey-multi-choice',
-    button_label: 'Next',
-    preamble: 'Please answer some further questions on demographics.',
-    questions: [
-        { prompt: "Have you discovered the rules in the trials with colored background?", name: 'Q1', options: Q1_options, required: true, horizontal:false },
-        //{ prompt: "What is your gender?", name: 'DemoQ1', options: DemoQ1_options, required: true },
-        //{ prompt: "What is your age?", name: 'DemoQ2', options: DemoQ2_options, required: true },
-        //{ prompt: "Are you of Hispanic, Latino, or Spanish origin?", name: 'DemoQ3', options: DemoQ3_options, required: true },
-        //{ prompt: "How would you describe yourself? Please select all that apply.", name: 'DemoQ4', options: DemoQ4_options, required: true },
-        //{ prompt: "What is the highest degree or level of school you have completed?", name: 'DemoQ5', options: DemoQ5_options, required: true },
-    ],
+//var multi_choice_block = {
+//    type: 'survey-multi-choice',
+//    button_label: 'Next',
+//    preamble: 'Please answer some further questions on demographics.',
+//    questions: [
+//        { prompt: "Have you discovered the rules in the trials with colored background?", name: 'Q1', options: Q1_options, required: true, horizontal:false },
+//        { prompt: "What is your gender?", name: 'DemoQ1', options: DemoQ1_options, required: true },
+//        { prompt: "What is your age?", name: 'DemoQ2', options: DemoQ2_options, required: true },
+//        { prompt: "Are you of Hispanic, Latino, or Spanish origin?", name: 'DemoQ3', options: DemoQ3_options, required: true },
+//        { prompt: "How would you describe yourself? Please select all that apply.", name: 'DemoQ4', options: DemoQ4_options, required: true },
+//        { prompt: "What is the highest degree or level of school you have completed?", name: 'DemoQ5', options: DemoQ5_options, required: true },
+//    ],
+//};
+//timeline.push(multi_choice_block);
+
+
+var questions = [
+    { prompt: "Have you discovered the rules in the trials with colored background?", name: 'Q1', options: Q1_options, required: true, horizontal: false },
+    { prompt: "What is your gender?", name: 'DemoQ1', options: DemoQ1_options, required: true },
+    { prompt: "What is your age?", name: 'DemoQ2', options: DemoQ2_options, required: true },
+    { prompt: "Are you of Hispanic, Latino, or Spanish origin?", name: 'DemoQ3', options: DemoQ3_options, required: true },
+    { prompt: "How would you describe yourself? Please select all that apply.", name: 'DemoQ4', options: DemoQ4_options, required: true },
+    { prompt: "What is the highest degree or level of school you have completed?", name: 'DemoQ5', options: DemoQ5_options, required: true },
+],
+
+var multi_choice = {
+    timeline: [
+        {
+            type: 'survey-multi-choice',
+            preamble: 'Please answer some further questions on demographics.',
+            prompt: jsPsych.timelineVariable('prompt'),
+            options: jsPsych.timelineVariable('options'),
+            name: jsPsych.timelineVariable('name'),
+            required: jsPsych.timelineVariable('required'),
+        };
+];
+
+var multi = {
+    timeline: [multi_choice],
+    timeline_variables: questions,
+    randomize_order: false,
+    repetitions: 1
 };
-timeline.push(multi_choice_block);
-
-
+timeline.push(multi)
 
 
 var instr_1 = {
@@ -255,7 +283,7 @@ var prac = {
             on_finish: function (data) {
                 data.correct = data.key_press == jsPsych.pluginAPI.convertKeyCharacterToKeyCode(data.correct_response);
             }
-        },
+        },、
 
         {
             type: "image-keyboard-response",

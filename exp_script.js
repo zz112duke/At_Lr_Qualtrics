@@ -366,7 +366,19 @@ var lr_stimuli_TS2 = [//TS2 based on orientation; right a left l
     { lr_stimulus: repo_site + "img/Stim/TS132.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'c'}},
     { lr_stimulus: repo_site + "img/Stim/TS133.png", data: {test_part: 'test', TaskType: 'lr', lr_TaskSet: 'TS2', Color: 'blue', correct_response: 'c'}},
 ];
-//preload_list.push.apply(preload_list, stim_names_freq, stim_names_infreq);
+
+lr_preload = []
+for (i = 0; i < lr_stimuli_TS1.length; i++) {
+    lr_stim = lr_stimuli_TS1[i].lr_stimulus
+    lr_preload.push(lr_stim)
+};
+
+for (i = 0; i < lr_stimuli_TS2.length; i++) {
+    lr_stim = lr_stimuli_TS2[i].lr_stimulus
+    lr_preload.push(lr_stim)
+};
+
+preload_list.push.apply(preload_list, lr_preload);
 
 var learning = {
   type: "image-keyboard-response",

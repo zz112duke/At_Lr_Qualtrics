@@ -109,7 +109,7 @@ var questions = [
     { prompt: "Are you of Hispanic, Latino, or Spanish origin?", name: 'DemoQ3', options: DemoQ3_options, required: true },
     { prompt: "How would you describe yourself? Please select all that apply.", name: 'DemoQ4', options: DemoQ4_options, required: true },
     { prompt: "What is the highest degree or level of school you have completed?", name: 'DemoQ5', options: DemoQ5_options, required: true },
-],
+];
 
 var multi_choice = {
     timeline: [
@@ -120,8 +120,9 @@ var multi_choice = {
             options: jsPsych.timelineVariable('options'),
             name: jsPsych.timelineVariable('name'),
             required: jsPsych.timelineVariable('required'),
-        };
-];
+        }
+    ];
+ };
 
 var multi = {
     timeline: [multi_choice],

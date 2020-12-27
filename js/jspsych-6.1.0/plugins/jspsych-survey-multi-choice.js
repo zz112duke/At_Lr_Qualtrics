@@ -156,7 +156,7 @@ jsPsych.plugins['survey-multi-choice'] = (function() {
     // render
     display_element.innerHTML = html;
 
-    document.querySelector('form').addEventListener('submit', function(event) {
+    document.querySelector('#jspsych-survey-multi-choice-form').addEventListener('submit', function(event) {
       event.preventDefault();
       // measure response time
       var endTime = performance.now();

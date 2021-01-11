@@ -452,7 +452,7 @@ var attention = {
     data.at_RunningMean = rt_mean
     data.sd = rt_sd
     data.slow = rt_mean+0.75*rt_sd
-    data.fast = Math.abs(rt_mean-0.75*rt_sd)
+    data.fast = Math.abs(rt_mean-0.75*rt_sd) //0.8??
 
 
     if (at_counter > 3) {
@@ -500,7 +500,7 @@ var attention = {
       if(rt_three >= rt_mean+0.75*rt_sd){
             lr_node = true;
             data.diff = 'slow'
-          } else if (rt_three < Math.abs(rt_mean-0.75*rt_sd)){
+          } else if (rt_three < Math.abs(rt_mean-0.75*rt_sd)){ //0.8??
                 lr_node = false;
                 data.diff = 'fast'
             }
@@ -580,10 +580,11 @@ timeline.push(rules_Q);
 /* Demographics */
 
 var Q1_options = ["Yes", "No"];
-var DemoQ1_options = ["Male", "Female", "Other"];
+var Q2_options = ["Yes", "No"];
+var DemoQ1_options = ["Male", "Female", "Gender Non-conforming", "Other", "Choose not to respond"];
 var DemoQ2_options = ["Under 18", "18-24", "25-34", "35-44", "45-54", "55-64", "65-74", "75-84", "85 or older"];
-var DemoQ3_options = ["Yes", "No"];
-var DemoQ4_options = ["White", "Black or African American", "Asian", "Native Hawaiian or Pacific Islander", "Other"];
+var DemoQ3_options = ["Hispanic/Latino", "Not Hispanic/Latino", "Choose not to respond"];
+var DemoQ4_options = ["American Indian/Native American","White", "Black/African American", "Asian", "Native Hawaiian or Pacific Islander", "More than one race", "Other","Choose not to respond"];
 var DemoQ5_options = ["Less than a high school diploma", "High school degree or equivalent (e.g. GED)", "Some college, no degree", "Associate degree (e.g. AA, AS)", "College degree", "Master's degree (e.g. MA, MS, MEd)", "Doctorate or professional degree (e.g. MD, DDS, PhD)"];
 
 var multi_choice_block = {
@@ -592,9 +593,10 @@ var multi_choice_block = {
     preamble: 'Please answer some further questions on demographics.',
     questions: [
         { prompt: "Have you discovered the rules in the trials with colored background?", name: 'Q1', options: Q1_options, required: true, horizontal: false },
+        { prompt: "Do you think the color of the background mattered?", name: 'Q2', options: Q2_options, required: true, horizontal: false },
         { prompt: "What is your gender?", name: 'DemoQ1', options: DemoQ1_options, required: true },
         { prompt: "What is your age?", name: 'DemoQ2', options: DemoQ2_options, required: true },
-        { prompt: "Are you of Hispanic, Latino, or Spanish origin?", name: 'DemoQ3', options: DemoQ3_options, required: true },
+        { prompt: "What is your Ethnicity?", name: 'DemoQ3', options: DemoQ3_options, required: true },
         { prompt: "How would you describe yourself? Please select all that apply.", name: 'DemoQ4', options: DemoQ4_options, required: true },
         { prompt: "What is the highest degree or level of school you have completed?", name: 'DemoQ5', options: DemoQ5_options, required: true },
     ],

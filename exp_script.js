@@ -94,7 +94,7 @@ var at_stimuli = []
 var prac_stimuli = []
 var repetition = []
 var preload_list= []
-for (i = 0; i < 720; i++) {
+for (i = 0; i < 1080; i++) {
     //var stimuli = new Object();
     stimuli_freq = stim_names_freq[Math.floor((Math.random()) * stim_names_freq.length)];
     repetition.push(String(stimuli_freq.charAt(16)) + String(stimuli_freq.charAt(17)) + String(stimuli_freq.charAt(18)));
@@ -112,7 +112,7 @@ for (i = 0; i < 720; i++) {
 }
 
 var repetition_1 = []
-for (i = 0; i < 80; i++) {
+for (i = 0; i < 120; i++) {
 
     stimuli_infreq = stim_names_infreq[Math.floor((Math.random()) * stim_names_infreq.length)];
     repetition_1.push(String(stimuli_infreq.charAt(16)) + String(stimuli_infreq.charAt(17)) + String(stimuli_infreq.charAt(18)));

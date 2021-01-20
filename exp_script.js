@@ -600,7 +600,7 @@ timeline.push(rules_Q2);
 var rules_Q34 = {
     type: 'survey-html-form',
     preamble: '<p> Please answer a few questions regarding the rules of the game. </p>',
-    html: '<p> What do you think determined the feedback you received when you saw the green background? <input name = "first" type = "text" />. <br> What do you think determined the feedback you received when you saw the blue background? <input name = "second" type = "text" /> </p>',
+    html: '<p> What do you think determined the feedback you received when you saw the green background? <input name = "first" type = "text" /> <br> What do you think determined the feedback you received when you saw the blue background? <input name = "second" type = "text" /> </p>',
     autofocus: 'test-resp-box',
     required: true
 };
@@ -626,9 +626,9 @@ var multi_choice_block2 = {
     button_label: 'Next',
     preamble: 'Please answer some further questions on demographics.',
     questions: [
-        { prompt: "Which following feature do you think determined the feedback you received when you saw the green background? <br> A. If the orientation of the black bars is tilted toward the right, press X <br> B. If the orientation of the black bars is tilted toward the right, press C <br> C. If the orientation of the black bars is tilted toward the left, press X <br> D. If the orientation of the black bars is tilted toward the left, press C", name: 'Q1', options: Q1_options, required: true, horizontal: false },
+        { prompt: "Which following feature do you think determined the feedback you received when you saw the green background? , name: 'Q1', options: Q1_options, required: true, horizontal: false },
         { prompt: "Which following feature do you think determined the feedback you received when you saw the blue background? ", name: 'Q2', options: Q2_options, required: true, horizontal: false },
-        { prompt: 'Which choice do you think describes the correct rule when you saw the green background?', name: 'Q3', options: Q3_options, required: true, horizontal: false },
+        { prompt: "Which choice do you think describes the correct rule when you saw the green background? <br> A. If the orientation of the black bars is tilted toward the right, press X <br> B. If the orientation of the black bars is tilted toward the right, press C <br> C. If the orientation of the black bars is tilted toward the left, press X <br> D. If the orientation of the black bars is tilted toward the left, press C", name: 'Q3', options: Q3_options, required: true, horizontal: false },
         { prompt: 'Which choice do you think describes the correct rule when you saw the blue background?', name: 'Q4', options: Q4_options, required: true, horizontal: false },
         { prompt: "What is your gender?", name: 'DemoQ1', options: DemoQ1_options, required: true },
         { prompt: "What is your age?", name: 'DemoQ2', options: DemoQ2_options, required: true },

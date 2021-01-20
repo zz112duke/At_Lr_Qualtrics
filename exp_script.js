@@ -637,8 +637,6 @@ var multi_choice_block3 = {
     preamble: 'Which choice do you think describes the correct rules when you saw the green background?',
     questions: [
         { prompt: "A. If the orientation of the black bars is tilted toward the right, press X <br> B. If the orientation of the black bars is tilted toward the right, press C <br> C. If the orientation of the black bars is tilted toward the left, press X <br> D. If the orientation of the black bars is tilted toward the left, press C", name: 'Q3', options: Q3_options, required: true, horizontal: false },
-        { prompt: "A. If the orientation of the black bars is tilted toward the right, press X <br> B. If the orientation of the black bars is tilted toward the right, press C <br> C. If the orientation of the black bars is tilted toward the left, press X <br> D. If the orientation of the black bars is tilted toward the left, press C", name: 'Q4', options: Q4_options, required: true, horizontal: false },
-
     ],
 };
 timeline.push(multi_choice_block3);

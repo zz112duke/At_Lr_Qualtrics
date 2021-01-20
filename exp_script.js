@@ -611,8 +611,6 @@ timeline.push(rules_Q34);
 
 var Q1_options = ["Orientation of the black bars", "The space between the black bars (how tight or loose the bars are)"];
 var Q2_options = ["Orientation of the black bars", "The space between the black bars (how tight or loose the bars are)"];
-//var Q3_options = ["If the orientation of the black bars is tilted toward the right, press “X” ", "If the orientation of the black bars is tilted toward the right, press “C” ", "If the orientation of the black bars is tilted toward the left, press “X” ", "If the orientation of the black bars is tilted toward the left, press “C” "];
-
 var Q3_options = ["AD","BC"];
 var Q4_options = ["AD","BC"];
 var DemoQ1_options = ["Male", "Female", "Gender Non-conforming", "Other", "Choose not to respond"];
@@ -624,12 +622,44 @@ var DemoQ5_options = ["Less than a high school diploma", "High school degree or 
 var multi_choice_block2 = {
     type: 'survey-multi-choice',
     button_label: 'Next',
-    preamble: 'Please answer some further questions on demographics.',
+    preamble: 'Please answer some further questions on the rule.',
     questions: [
         { prompt: "Which following feature do you think determined the feedback you received when you saw the green background?", name: 'Q1', options: Q1_options, required: true, horizontal: false },
         { prompt: "Which following feature do you think determined the feedback you received when you saw the blue background? ", name: 'Q2', options: Q2_options, required: true, horizontal: false },
-        { prompt: "Which choice do you think describes the correct rules when you saw the green background? <br> A. If the orientation of the black bars is tilted toward the right, press X <br> B. If the orientation of the black bars is tilted toward the right, press C <br> C. If the orientation of the black bars is tilted toward the left, press X <br> D. If the orientation of the black bars is tilted toward the left, press C", name: 'Q3', options: Q3_options, required: true, horizontal: false },
-        { prompt: "Which choice do you think describes the correct rules when you saw the blue background? <br> A.If the orientation of the black bars is tilted toward the right, press X <br> B.If the orientation of the black bars is tilted toward the right, press C <br> C.If the orientation of the black bars is tilted toward the left, press X <br> D.If the orientation of the black bars is tilted toward the left, press C", name: 'Q4', options: Q4_options, required: true, horizontal: false },
+    ],
+};
+timeline.push(multi_choice_block2);
+
+
+var multi_choice_block3 = {
+    type: 'survey-multi-choice',
+    button_label: 'Next',
+    preamble: 'Which choice do you think describes the correct rules when you saw the green background?',
+    questions: [
+        { prompt: "A. If the orientation of the black bars is tilted toward the right, press X <br> B. If the orientation of the black bars is tilted toward the right, press C <br> C. If the orientation of the black bars is tilted toward the left, press X <br> D. If the orientation of the black bars is tilted toward the left, press C", name: 'Q3', options: Q3_options, required: true, horizontal: false },
+        { prompt: "A. If the orientation of the black bars is tilted toward the right, press X <br> B. If the orientation of the black bars is tilted toward the right, press C <br> C. If the orientation of the black bars is tilted toward the left, press X <br> D. If the orientation of the black bars is tilted toward the left, press C", name: 'Q4', options: Q4_options, required: true, horizontal: false },
+
+    ],
+};
+timeline.push(multi_choice_block3);
+
+
+var multi_choice_block4 = {
+    type: 'survey-multi-choice',
+    button_label: 'Next',
+    preamble: 'Which choice do you think describes the correct rules when you saw the blue background?',
+    questions: [
+        { prompt: "A. If the orientation of the black bars is tilted toward the right, press X <br> B. If the orientation of the black bars is tilted toward the right, press C <br> C. If the orientation of the black bars is tilted toward the left, press X <br> D. If the orientation of the black bars is tilted toward the left, press C", name: 'Q4', options: Q4_options, required: true, horizontal: false },
+    ],
+};
+timeline.push(multi_choice_block4);
+
+
+var multi_choice_Demo = {
+    type: 'survey-multi-choice',
+    button_label: 'Next',
+    preamble: 'Please answer some further questions on demographics.',
+    questions: [
         { prompt: "What is your gender?", name: 'DemoQ1', options: DemoQ1_options, required: true },
         { prompt: "What is your age?", name: 'DemoQ2', options: DemoQ2_options, required: true },
         { prompt: "What is your Ethnicity?", name: 'DemoQ3', options: DemoQ3_options, required: true },
@@ -637,7 +667,12 @@ var multi_choice_block2 = {
         { prompt: "What is the highest degree or level of school you have completed?", name: 'DemoQ5', options: DemoQ5_options, required: true },
     ],
 };
-timeline.push(multi_choice_block2);
+timeline.push(multi_choice_Demo);
+
+
+
+
+
 
 
 function save_data_csv() {

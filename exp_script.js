@@ -240,7 +240,7 @@ var prac_block = {
     randomize_order: false,
     repetitions: 1
 }
-//timeline.push(prac_block)
+timeline.push(prac_block)
 
 var debrief = {
     type: "html-keyboard-response",
@@ -254,14 +254,14 @@ var debrief = {
 
     }
 };
-//timeline.push(debrief);
+timeline.push(debrief);
 
 var instr_2 = {
     type: 'external-html',
     url: repo_site + "content/instr_2.html",
     cont_btn: 'next',
 };
-//timeline.push(instr_2);
+timeline.push(instr_2);
 
 //var lr_prac = [
 //    { lr_stimulus: repo_site + "img/Stim/TS030.png", data: { test_part: 'prac_lr', TaskType: 'prac_lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'm' } },
@@ -326,7 +326,7 @@ var instr_3 = {
     url: repo_site + "content/instr_3.html",
     cont_btn: 'next',
 };
-//timeline.push(instr_3);
+timeline.push(instr_3);
 
 
 /* define learning trials */
@@ -551,7 +551,7 @@ var at_test_procedure = {
   randomize_order: false,
   repetitions: 1
 }
-//timeline.push(at_test_procedure);
+timeline.push(at_test_procedure);
 
 
 /* Payment Inclusion */

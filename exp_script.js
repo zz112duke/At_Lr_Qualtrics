@@ -626,7 +626,7 @@ var multi_choice_block2 = {
     button_label: 'Next',
     preamble: 'Please answer some further questions on demographics.',
     questions: [
-        { prompt: "Which following feature do you think determined the feedback you received when you saw the green background? , name: 'Q1', options: Q1_options, required: true, horizontal: false },
+        { prompt: "Which following feature do you think determined the feedback you received when you saw the green background?", name: 'Q1', options: Q1_options, required: true, horizontal: false },
         { prompt: "Which following feature do you think determined the feedback you received when you saw the blue background? ", name: 'Q2', options: Q2_options, required: true, horizontal: false },
         { prompt: "Which choice do you think describes the correct rule when you saw the green background? <br> A. If the orientation of the black bars is tilted toward the right, press X <br> B. If the orientation of the black bars is tilted toward the right, press C <br> C. If the orientation of the black bars is tilted toward the left, press X <br> D. If the orientation of the black bars is tilted toward the left, press C", name: 'Q3', options: Q3_options, required: true, horizontal: false },
         { prompt: 'Which choice do you think describes the correct rule when you saw the blue background?', name: 'Q4', options: Q4_options, required: true, horizontal: false },

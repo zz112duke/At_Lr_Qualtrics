@@ -240,7 +240,7 @@ var prac_block = {
     randomize_order: false,
     repetitions: 1
 }
-timeline.push(prac_block)
+//timeline.push(prac_block)
 
 var debrief = {
     type: "html-keyboard-response",
@@ -254,14 +254,14 @@ var debrief = {
 
     }
 };
-timeline.push(debrief);
+//timeline.push(debrief);
 
 var instr_2 = {
     type: 'external-html',
     url: repo_site + "content/instr_2.html",
     cont_btn: 'next',
 };
-timeline.push(instr_2);
+//timeline.push(instr_2);
 
 //var lr_prac = [
 //    { lr_stimulus: repo_site + "img/Stim/TS030.png", data: { test_part: 'prac_lr', TaskType: 'prac_lr', lr_TaskSet: 'TS1', Color: 'green', correct_response: 'm' } },
@@ -326,7 +326,7 @@ var instr_3 = {
     url: repo_site + "content/instr_3.html",
     cont_btn: 'next',
 };
-timeline.push(instr_3);
+//timeline.push(instr_3);
 
 
 /* define learning trials */
@@ -551,7 +551,7 @@ var at_test_procedure = {
   randomize_order: false,
   repetitions: 1
 }
-timeline.push(at_test_procedure);
+//timeline.push(at_test_procedure);
 
 
 /* Payment Inclusion */
@@ -565,35 +565,71 @@ var payment_inc = {
 timeline.push(payment_inc);
 
 /* A Few Q on Rules */
-var rules_Q = {
+var rules_Q1 = {
     type: 'survey-html-form',
     preamble: '<p> Please answer a few questions regarding the rules of the game. </p>',
-    html: '<p> What do you think the colored background indicates? <input name="first" type="text" />. <br> What do you think is the relationship between the stripes and your response? <input name = "second" type = "text" /> </p> ',
+    html: '<p> What do you think determined the feedback that you received? <input name="first" type="text" /> </p> ',
     autofocus: 'test-resp-box',
     required: true
 };
-timeline.push(rules_Q);
+timeline.push(rules_Q1);
 
 
+var Q1_options = ["No", "Yes"];
+var multi_choice_block1 = {
+    type: 'survey-multi-choice',
+    button_label: 'Next',
+    preamble: 'Please answer a few questions regarding the rules of the game.',
+    questions: [
+        { prompt: "Do you think the color of the background mattered?", name: 'Q1', options: Q1_options, required: true, horizontal: false },
+    ],
+};
+timeline.push(multi_choice_block1);
+
+
+var rules_Q2 = {
+    type: 'survey-html-form',
+    preamble: '<p> Please answer a few questions regarding the rules of the game. </p>',
+    html: '<p> What do you think the green and blue backgrounds indicated? <input name = "first" type = "text" /> </p>',
+autofocus: 'test-resp-box',
+    required: true
+};
+timeline.push(rules_Q2);
+
+
+var rules_Q34 = {
+    type: 'survey-html-form',
+    preamble: '<p> Please answer a few questions regarding the rules of the game. </p>',
+    html: '<p> What do you think determined the feedback you received when you saw the green background? <input name = "first" type = "text" />. <br> What do you think determined the feedback you received when you saw the blue background? <input name = "second" type = "text" /> </p>',
+    autofocus: 'test-resp-box',
+    required: true
+};
+timeline.push(rules_Q34);
 
 
 /* Demographics */
 
-var Q1_options = ["Yes", "No"];
-var Q2_options = ["Yes", "No"];
+var Q1_options = ["Orientation of the black bars", "The space between the black bars (how tight or loose the bars are)"];
+var Q2_options = ["Orientation of the black bars", "The space between the black bars (how tight or loose the bars are)"];
+//var Q3_options = ["If the orientation of the black bars is tilted toward the right, press “X” ", "If the orientation of the black bars is tilted toward the right, press “C” ", "If the orientation of the black bars is tilted toward the left, press “X” ", "If the orientation of the black bars is tilted toward the left, press “C” "];
+
+var Q3_options = ["AC","BD"];
+var Q4_options = ["If the orientation of the black bars is tilted toward the right, press “X” ", "If the orientation of the black bars is tilted toward the right, press “C” ", "If the orientation of the black bars is tilted toward the left, press “X” ", "If the orientation of the black bars is tilted toward the left, press “C” "];
 var DemoQ1_options = ["Male", "Female", "Gender Non-conforming", "Other", "Choose not to respond"];
 var DemoQ2_options = ["Under 18", "18-24", "25-34", "35-44", "45-54", "55-64", "65-74", "75-84", "85 or older"];
 var DemoQ3_options = ["Hispanic/Latino", "Not Hispanic/Latino", "Choose not to respond"];
 var DemoQ4_options = ["American Indian/Native American","White", "Black/African American", "Asian", "Native Hawaiian or Pacific Islander", "More than one race", "Other","Choose not to respond"];
 var DemoQ5_options = ["Less than a high school diploma", "High school degree or equivalent (e.g. GED)", "Some college, no degree", "Associate degree (e.g. AA, AS)", "College degree", "Master's degree (e.g. MA, MS, MEd)", "Doctorate or professional degree (e.g. MD, DDS, PhD)"];
 
-var multi_choice_block = {
+var multi_choice_block2 = {
     type: 'survey-multi-choice',
     button_label: 'Next',
     preamble: 'Please answer some further questions on demographics.',
     questions: [
-        { prompt: "Have you discovered the rules in the trials with colored background?", name: 'Q1', options: Q1_options, required: true, horizontal: false },
-        { prompt: "Do you think the color of the background mattered?", name: 'Q2', options: Q2_options, required: true, horizontal: false },
+        { prompt: "Which following feature do you think determined the feedback you received when you saw the green background? <br> A. If the orientation of the black bars is tilted toward the right, press X <br> B. If the orientation of the black bars is tilted toward the right, press C <br> C. If the orientation of the black bars is tilted toward the left, press X <br> D. If the orientation of the black bars is tilted toward the left, press C", name: 'Q1', options: Q1_options, required: true, horizontal: false },
+        { prompt: "Which following feature do you think determined the feedback you received when you saw the blue background? ", name: 'Q2', options: Q2_options, required: true, horizontal: false },
+        { prompt: 'Which choice do you think describes the correct rule when you saw the green background?', name: 'Q3', options: Q3_options, required: true, horizontal: false },
+        { prompt: 'Which choice do you think describes the correct rule when you saw the blue background?', name: 'Q4', options: Q4_options, required: true, horizontal: false },
         { prompt: "What is your gender?", name: 'DemoQ1', options: DemoQ1_options, required: true },
         { prompt: "What is your age?", name: 'DemoQ2', options: DemoQ2_options, required: true },
         { prompt: "What is your Ethnicity?", name: 'DemoQ3', options: DemoQ3_options, required: true },
@@ -601,7 +637,7 @@ var multi_choice_block = {
         { prompt: "What is the highest degree or level of school you have completed?", name: 'DemoQ5', options: DemoQ5_options, required: true },
     ],
 };
-timeline.push(multi_choice_block);
+timeline.push(multi_choice_block2);
 
 
 function save_data_csv() {

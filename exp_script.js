@@ -667,10 +667,8 @@ var multi_choice_Demo = {
 };
 timeline.push(multi_choice_Demo);
 
-
-
-
-
+var interaction_data = jsPsych.data.getInteractionData();
+data.checks = interaction_data;
 
 
 function save_data_csv() {
